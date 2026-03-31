@@ -227,3 +227,176 @@
 .footer-inline { margin-top: 40px; font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 1px; }
 .footer-inline a { color: rgba(255,255,255,0.3); text-decoration: none; margin: 0 8px; }
 .footer-inline a:hover { color: rgba(255,255,255,0.6); }
+
+/* ─── Section 03 · Features split layout ─────────────────────────────────── */
+
+.sec-content--split {
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 52px;
+}
+.split-left { flex: 0 0 280px; }
+.split-right { flex: 1; }
+
+/* Feature list */
+.feat-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 24px;
+}
+.feat-list-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.fli-icon {
+  flex-shrink: 0;
+  color: #22d3ee;
+  margin-top: 2px;
+  line-height: 1;
+}
+.fli-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3px;
+}
+.fli-desc {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.55;
+}
+
+/* ─── Dashboard mockup window ─────────────────────────────────────────────── */
+
+.mockup-window {
+  background: rgba(8,20,40,0.85);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+
+/* Chrome bar */
+.mockup-chrome {
+  background: rgba(255,255,255,0.04);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.chrome-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.chrome-title {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.5px;
+  margin-left: 6px;
+}
+
+/* Window body */
+.mockup-body {
+  padding: 16px;
+  position: relative;
+}
+.mockup-section-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.3;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.mockup-see-all {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 0.58rem;
+  color: rgba(34,211,238,0.55);
+  cursor: default;
+}
+
+/* Course rows */
+.mockup-course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.course-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+.course-name {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.progress-track {
+  background: rgba(255,255,255,0.07);
+  border-radius: 4px;
+  height: 4px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  animation: fillBar 1.2s ease-out forwards;
+}
+.progress-fill--warn {
+  background: linear-gradient(90deg, #f87171, #fb923c);
+}
+@keyframes fillBar {
+  from { width: 0; }
+  to   { width: var(--w); }
+}
+.course-pct {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.35);
+  white-space: nowrap;
+  min-width: 36px;
+  text-align: right;
+}
+.course-pct--warn { color: rgba(248,113,113,0.7); }
+
+/* Alert row */
+.mockup-alert-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(248,113,113,0.06);
+  border: 1px solid rgba(248,113,113,0.3);
+  border-radius: 8px;
+}
+.alert-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #f87171;
+  flex-shrink: 0;
+  animation: alertPulse 1.6s ease-in-out infinite;
+}
+@keyframes alertPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+.alert-text {
+  font-size: 0.68rem;
+  color: rgba(248,113,113,0.8);
+}
