@@ -94,6 +94,30 @@
 .stat-n { font-size: 3.2rem; font-weight: 900; color: #a78bfa; line-height: 1; }
 .stat-l { font-size: 0.72rem; color: rgba(255,255,255,0.3); margin-top: 6px; }
 
+.testimonial {
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid rgba(167,139,250,0.5);
+  border-radius: 10px;
+  max-width: 440px;
+  text-align: left;
+}
+.testimonial p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  font-style: italic;
+}
+.testimonial footer {
+  margin-top: 10px;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.5px;
+}
+.testimonial cite { font-style: normal; }
+
 .footer-inline { margin-top: 40px; font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 1px; }
 .footer-inline a { color: rgba(255,255,255,0.3); text-decoration: none; margin: 0 8px; }
 .footer-inline a:hover { color: rgba(255,255,255,0.6); }
