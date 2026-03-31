@@ -3,300 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pulsed — Gestiona tus cursos SENCE en tiempo real. Sin Excel. Sin WhatsApp. Sin sorpresas.">
-  <title>Pulsed — Gestiona tus cursos. No tus planillas.</title>
-
-  <!-- Google Fonts -->
+  <title>Pulsed — Gestiona tus OTECs con precisión total</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/tokens.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/sections.css">
-
-  <!-- Three.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-  <!-- GSAP CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
 </head>
 <body>
+<div id="bg"></div>
+<canvas id="net-canvas"></canvas>
 
-  <!-- Canvas Three.js: cosmos de fondo -->
-  <canvas id="cosmos-canvas"></canvas>
+<nav id="main-nav">
+  <a class="nav-logo" href="#">Pulsed</a>
+  <div class="nav-links">
+    <a href="#">Producto</a>
+    <a href="#">Features</a>
+    <a href="#">Precios</a>
+    <a href="#">Contacto</a>
+  </div>
+</nav>
 
-  <!-- ─── NAV ─── -->
-  <nav id="main-nav">
-    <div class="nav-logo">
-      <span class="nav-logo-dot"></span>
-      <span class="nav-logo-text">Pulsed</span>
+<div id="nav-dots"></div>
+
+<section class="section active" data-idx="0">
+  <div class="sec-content pos-tl">
+    <span class="sec-tag">01 · Pulsed</span>
+    <h1 class="sec-h">Gestiona tus OTECs<br>con <span class="ac-purple">precisión total</span></h1>
+    <p class="sec-body">La plataforma que conecta datos SENCE, Pipedrive y comunicaciones con tus estudiantes en un solo lugar.</p>
+    <a class="btn" href="#">Descubrir más ↗</a>
+  </div>
+</section>
+
+<section class="section" data-idx="1">
+  <div class="sec-content pos-tr">
+    <span class="sec-tag">02 · El problema</span>
+    <h2 class="sec-h">Datos dispersos,<br>decisiones <span class="ac-red">ciegas</span></h2>
+    <p class="sec-body">Sin visibilidad unificada, los tutores pierden horas buscando información en Excel, correos y portales del Estado.</p>
+  </div>
+</section>
+
+<section class="section" data-idx="2">
+  <div class="sec-content pos-tl">
+    <span class="sec-tag">03 · Features</span>
+    <h2 class="sec-h">Todo lo que necesitas,<br><span class="ac-cyan">conectado</span></h2>
+    <div class="feat-grid">
+      <div class="feat-item"><div class="ft">Sync SENCE</div><div class="fd">Datos en tiempo real desde el portal del Estado.</div></div>
+      <div class="feat-item"><div class="ft">CRM Pipedrive</div><div class="fd">Seguimiento completo de cada alumno.</div></div>
+      <div class="feat-item"><div class="ft">Alertas inteligentes</div><div class="fd">Notificaciones priorizadas por riesgo.</div></div>
+      <div class="feat-item"><div class="ft">Roles jerárquicos</div><div class="fd">Director, Tutor, Ayudante con permisos propios.</div></div>
     </div>
-    <div class="nav-links">
-      <a href="#features">Producto</a>
-      <a href="#pricing">Precios</a>
-      <a href="#cta">Demo</a>
+  </div>
+</section>
+
+<section class="section" data-idx="3">
+  <div class="sec-content pos-tr">
+    <span class="sec-tag">04 · Cómo funciona</span>
+    <h2 class="sec-h">Tres pasos hacia<br>el <span class="ac-green">control total</span></h2>
+    <p class="sec-body">Conecta tu OTEC → sincroniza datos SENCE → actúa sobre alertas priorizadas. En menos de 5 minutos.</p>
+    <a class="btn" href="#">Ver demo</a>
+  </div>
+</section>
+
+<section class="section" data-idx="4">
+  <div class="sec-content pos-ct">
+    <span class="sec-tag" style="display:block;text-align:center">05 · Resultados</span>
+    <h2 class="sec-h">Números que<br><span class="ac-lav">hablan solos</span></h2>
+    <div class="stats-row">
+      <div><div class="stat-n">87%</div><div class="stat-l">Menos tiempo admin</div></div>
+      <div><div class="stat-n">3×</div><div class="stat-l">Más retención</div></div>
+      <div><div class="stat-n">40+</div><div class="stat-l">OTECs activas</div></div>
     </div>
-    <a href="#cta" class="nav-cta">Solicitar Demo</a>
-  </nav>
+  </div>
+</section>
 
-  <!-- ─── 01 HERO ─── -->
-  <section id="hero">
-    <div class="hero-nebula hero-nebula--left"></div>
-    <div class="hero-nebula hero-nebula--right"></div>
+<section class="section" data-idx="5">
+  <div class="sec-content pos-tl">
+    <span class="sec-tag">06 · Planes</span>
+    <h2 class="sec-h">Precio justo<br>para cada <span class="ac-gold">OTEC</span></h2>
+    <p class="sec-body">Desde OTECs pequeñas hasta redes multi-curso. Sin contratos largos, cancela cuando quieras.</p>
+    <a class="btn" href="#">Ver precios</a>
+  </div>
+</section>
 
-    <div class="hero-content">
-      <div id="hero-badge" class="hero-badge">
-        🇨🇱 Diseñado para OTECs en Chile
-      </div>
-
-      <h1 id="hero-headline" class="hero-headline">
-        Gestiona tus cursos.<br>No tus planillas.
-      </h1>
-
-      <p id="hero-subtitle" class="hero-subtitle">
-        Pulsed te da visibilidad en tiempo real del avance de tus alumnos SENCE.<br>
-        Sin Excel. Sin WhatsApp. Sin sorpresas.
-      </p>
-
-      <div id="hero-ctas" class="hero-ctas">
-        <a href="#cta" class="btn-primary">Solicitar Demo</a>
-        <a href="#pain" class="btn-secondary">Ver cómo funciona ↓</a>
-      </div>
+<section class="section" data-idx="6">
+  <div class="sec-content pos-ct">
+    <span class="sec-tag" style="display:block;text-align:center">07 · Empezar</span>
+    <h2 class="sec-h">Tu OTEC merece<br>una herramienta<br><span class="ac-purple">a su altura</span></h2>
+    <p class="sec-body" style="max-width:340px;margin:0 auto 28px">Prueba Pulsed gratis por 14 días. Sin tarjeta de crédito.</p>
+    <a class="btn" href="#">Comenzar gratis ↗</a>
+    <div class="footer-inline">
+      © 2026 Pulsed
+      <a href="#">Contacto</a>
+      <a href="#">Privacidad</a>
     </div>
+  </div>
+</section>
 
-    <!-- UI Director flotante -->
-    <div id="hero-iframe-wrapper" class="hero-iframe-wrapper">
-      <div class="iframe-glow"></div>
-      <iframe
-        src="../mockups/anim-02-director.html"
-        class="hero-iframe"
-        scrolling="no"
-        frameborder="0"
-        title="Vista Director — Pulsed"
-      ></iframe>
-    </div>
-
-    <!-- Icosaedro wireframe (Three.js canvas secundario) -->
-    <div id="hero-geo" class="hero-geo">
-      <canvas id="geo-canvas"></canvas>
-    </div>
-  </section>
-
-  <!-- ─── 02 PAIN POINTS ─── -->
-  <section id="pain" class="section section--pain">
-    <div class="container">
-      <h2 class="section-title" data-split>¿Te suena familiar?</h2>
-      <div class="pain-grid">
-        <div class="glass-card pain-card">
-          <span class="pain-icon">📊</span>
-          <p>Descargas planillas de SENCE cada semana y las cruzas en Excel</p>
-        </div>
-        <div class="glass-card pain-card">
-          <span class="pain-icon">📱</span>
-          <p>Persigues alumnos uno a uno por WhatsApp sin registro ni trazabilidad</p>
-        </div>
-        <div class="glass-card pain-card">
-          <span class="pain-icon">⏰</span>
-          <p>Cuando detectas que un alumno dejó de avanzar, ya perdiste semanas</p>
-        </div>
-      </div>
-      <div class="pain-stat">
-        <span id="pain-counter" class="pain-counter">0</span>
-        <span class="pain-counter-symbol">%</span>
-        <p class="pain-stat-label">de los alumnos en cursos SENCE no completa a tiempo</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── 03 FEATURES ─── -->
-  <section id="features" class="section section--features">
-    <div class="container">
-      <h2 class="section-title" data-split>Todo en un lugar.</h2>
-
-      <!-- F1: Dashboard -->
-      <div class="feature-row feature-row--odd">
-        <div class="feature-text">
-          <span class="feature-label">01 · Dashboard</span>
-          <h3>Visibilidad en tiempo real</h3>
-          <p>Ve el estado de todos tus cursos de un vistazo. KPIs de avance, asistencia y alertas automáticas cuando algo requiere tu atención.</p>
-        </div>
-        <div class="feature-iframe-wrap feature-iframe-wrap--odd">
-          <iframe src="../mockups/anim-01-dashboard.html" scrolling="no" frameborder="0" title="Dashboard Pulsed"></iframe>
-        </div>
-      </div>
-
-      <!-- F2: Comunicaciones -->
-      <div class="feature-row feature-row--even">
-        <div class="feature-iframe-wrap feature-iframe-wrap--even">
-          <iframe src="../mockups/anim-03-comunicaciones.html" scrolling="no" frameborder="0" title="Radar Comunicaciones Pulsed"></iframe>
-        </div>
-        <div class="feature-text">
-          <span class="feature-label">02 · Comunicaciones</span>
-          <h3>Radar de contacto</h3>
-          <p>Sabe exactamente a quién contactar, cuándo y por qué. Prioriza por urgencia y mantén registro de cada conversación.</p>
-        </div>
-      </div>
-
-      <!-- F3: Perfil -->
-      <div class="feature-row feature-row--odd">
-        <div class="feature-text">
-          <span class="feature-label">03 · Estudiantes</span>
-          <h3>Seguimiento individual</h3>
-          <p>Perfil completo de cada alumno: avance por módulo, horas, actividades y evolución temporal. Sin cruzar planillas.</p>
-        </div>
-        <div class="feature-iframe-wrap feature-iframe-wrap--odd">
-          <iframe src="../mockups/anim-04-perfil.html" scrolling="no" frameborder="0" title="Perfil Estudiante Pulsed"></iframe>
-        </div>
-      </div>
-
-      <!-- F4: Director -->
-      <div class="feature-row feature-row--even">
-        <div class="feature-iframe-wrap feature-iframe-wrap--even">
-          <iframe src="../mockups/anim-02-director.html" scrolling="no" frameborder="0" title="Vista Director Pulsed"></iframe>
-        </div>
-        <div class="feature-text">
-          <span class="feature-label">04 · Dirección</span>
-          <h3>Visión de Director</h3>
-          <p>Supervisa todos tus cursos y tutores desde un solo panel. Detecta deserción, recibe escalaciones y toma decisiones con datos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── 04 CÓMO FUNCIONA ─── -->
-  <section id="how" class="section section--how">
-    <div class="container">
-      <h2 class="section-title" data-split>Pulsed en 3 pasos.</h2>
-      <div class="steps-grid">
-        <div class="step-col">
-          <div class="step-number step-number--1">1</div>
-          <h3>Conecta tus datos SENCE</h3>
-          <p>Sube tus archivos o sincroniza automáticamente desde la app de escritorio</p>
-          <div class="step-iframe-wrap">
-            <iframe src="../mockups/anim-05-historial.html" scrolling="no" frameborder="0" title="Historial SENCE Pulsed"></iframe>
-          </div>
-        </div>
-        <div class="steps-connector" aria-hidden="true"></div>
-        <div class="step-col">
-          <div class="step-number step-number--2">2</div>
-          <h3>Visualiza el avance</h3>
-          <p>Dashboard, alertas y radar se actualizan automáticamente</p>
-          <div class="step-iframe-wrap">
-            <iframe src="../mockups/anim-06-estudiantes.html" scrolling="no" frameborder="0" title="Estudiantes Pulsed"></iframe>
-          </div>
-        </div>
-        <div class="steps-connector" aria-hidden="true"></div>
-        <div class="step-col">
-          <div class="step-number step-number--3">3</div>
-          <h3>Actúa a tiempo</h3>
-          <p>Contacta alumnos en riesgo con mensajes personalizados</p>
-          <div class="step-iframe-wrap">
-            <iframe src="../mockups/anim-03-comunicaciones.html" scrolling="no" frameborder="0" title="Comunicaciones Pulsed"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── 05 STATS + TESTIMONIO ─── -->
-  <section id="stats" class="section section--stats">
-    <div id="stats-geo-bg" class="stats-geo-bg" aria-hidden="true"></div>
-    <div class="container">
-      <div class="stats-grid">
-        <div class="glass-card stat-card">
-          <span class="stat-value" data-target="5" data-suffix="+">0</span>
-          <span class="stat-unit">hrs/semana</span>
-          <p class="stat-label">Ahorro estimado por tutor en gestión manual</p>
-        </div>
-        <div class="glass-card stat-card">
-          <span class="stat-value" data-target="82" data-suffix="">0</span>
-          <span class="stat-unit">cursos</span>
-          <p class="stat-label">Capacidad de gestión simultánea</p>
-        </div>
-        <div class="glass-card stat-card">
-          <span class="stat-value stat-value--text">Real<br>time</span>
-          <span class="stat-unit">sync</span>
-          <p class="stat-label">Sincronización con datos SENCE</p>
-        </div>
-      </div>
-      <blockquote class="glass-card testimonial">
-        <span class="testimonial-quote">"</span>
-        <p>Antes perdía toda la mañana del lunes cruzando planillas. Ahora abro Pulsed y en 2 minutos sé exactamente quién necesita atención.</p>
-        <footer>— <cite>Tutora de OTEC, Chile (cliente piloto)</cite></footer>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- ─── 06 PRICING ─── -->
-  <section id="pricing" class="section section--pricing">
-    <div class="container">
-      <h2 class="section-title" data-split>Planes que se adaptan a tu OTEC.</h2>
-      <div class="pricing-grid">
-        <div class="glass-card pricing-card">
-          <div class="pricing-tier">Starter</div>
-          <div class="pricing-desc">Hasta 3 cursos · 1 tutor</div>
-          <div class="pricing-cta-label">Próximamente</div>
-        </div>
-        <div class="glass-card pricing-card pricing-card--featured">
-          <div class="pricing-badge">Más popular</div>
-          <div class="pricing-tier">Pro</div>
-          <div class="pricing-desc">Hasta 15 cursos · 5 tutores</div>
-          <div class="pricing-cta-label">Próximamente</div>
-        </div>
-        <div class="glass-card pricing-card">
-          <div class="pricing-tier">Enterprise</div>
-          <div class="pricing-desc">Cursos ilimitados · Equipo completo</div>
-          <div class="pricing-cta-label">Contactar</div>
-        </div>
-      </div>
-      <div class="pricing-cta-wrap">
-        <a href="#cta" class="btn-primary">Solicitar acceso anticipado</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── 07 CTA FINAL ─── -->
-  <section id="cta" class="section section--cta">
-    <div class="cta-nebula cta-nebula--center"></div>
-    <div class="container">
-      <h2 class="cta-headline">¿Listo para dejar las planillas atrás?</h2>
-      <p class="cta-sub">Solicita una demo personalizada. Te contactamos en 24 hrs.</p>
-      <form class="cta-form" onsubmit="return false;">
-        <input type="email" placeholder="tu@otec.cl" class="cta-input" required aria-label="Email">
-        <button type="submit" class="btn-primary">Solicitar Demo</button>
-      </form>
-      <p class="cta-note">Sin compromiso.</p>
-    </div>
-  </section>
-
-  <!-- ─── FOOTER ─── -->
-  <footer id="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="footer-logo">🚀 Pulsed</span>
-        <p class="footer-tagline">Hecho en Chile 🇨🇱</p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="#features">Producto</a>
-        <a href="#pricing">Precios</a>
-        <a href="#cta">Contacto</a>
-        <a href="#">Blog</a>
-      </nav>
-      <div class="footer-legal">
-        <span>© 2026 Pulsed</span>
-        <a href="#">Términos</a>
-        <a href="#">Privacidad</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts (módulos) -->
-  <script type="module" src="js/main.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
