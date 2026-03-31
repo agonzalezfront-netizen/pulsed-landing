@@ -16,6 +16,9 @@
   opacity: 1;
   transform: translateY(0);
 }
+.sec-content--wide {
+  max-width: 580px;
+}
 .sec-content.pos-tr { margin-left: auto; text-align: right; }
 .sec-content.pos-ct { margin: auto; text-align: center; }
 .sec-content.pos-tl { margin-right: auto; }
@@ -55,6 +58,32 @@
   transition: background 0.2s, border-color 0.2s;
 }
 .btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
+
+/* Pain cards — section 02 */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+.pain-card {
+  padding: 16px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  transition: border-color 0.2s;
+}
+.pain-card:hover { border-color: rgba(248,113,113,0.25); }
+.pain-icon {
+  color: rgba(248,113,113,0.7);
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.pain-card p {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+}
 
 .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .feat-item { padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; }
