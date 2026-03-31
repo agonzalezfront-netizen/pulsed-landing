@@ -59,6 +59,81 @@
 }
 .btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
 
+/* Hero badge + dual CTA — section 01 */
+.hero-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 40px;
+  padding: 5px 14px;
+  margin-bottom: 14px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.btn--primary {
+  background: rgba(167,139,250,0.18);
+  border-color: rgba(167,139,250,0.45);
+}
+.btn--primary:hover { background: rgba(167,139,250,0.3); border-color: rgba(167,139,250,0.8); }
+.btn--ghost { opacity: 0.6; }
+.btn--ghost:hover { opacity: 1; }
+
+/* Pricing cards — section 06 */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 24px;
+}
+.pricing-card {
+  position: relative;
+  padding: 20px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+.pricing-card--featured {
+  background: rgba(251,191,36,0.05);
+  border-color: rgba(251,191,36,0.25);
+}
+.pricing-badge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(251,191,36,0.8);
+  margin-bottom: 10px;
+}
+.pricing-tier {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.pricing-desc {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.pricing-status {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.5px;
+}
+.pricing-status--cta {
+  color: rgba(251,191,36,0.6);
+  cursor: pointer;
+}
+.pricing-status--cta:hover { color: rgba(251,191,36,0.9); }
+
 /* Pain cards — section 02 */
 .pain-grid {
   display: grid;
