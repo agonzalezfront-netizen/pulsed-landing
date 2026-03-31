@@ -38,9 +38,10 @@ async function goTo(idx) {
   setTimeout(() => { busy = false; }, 800);
 }
 
-// Init
+// Init — add CSS class for initial visibility (avoids GSAP inline style conflicts on load)
 field.morphTo(PULSED_SECTIONS[0]);
-animateIn(sections[0]);
+const _initContent = sections[0].querySelector('.sec-content');
+if (_initContent) _initContent.classList.add('is-visible');
 
 // Wheel
 window.addEventListener('wheel', e => {

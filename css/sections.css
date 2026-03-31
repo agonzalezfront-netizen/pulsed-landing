@@ -12,6 +12,10 @@
   opacity: 0;
   transform: translateY(28px);
 }
+.sec-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .sec-content.pos-tr { margin-left: auto; text-align: right; }
 .sec-content.pos-ct { margin: auto; text-align: center; }
 .sec-content.pos-tl { margin-right: auto; }
