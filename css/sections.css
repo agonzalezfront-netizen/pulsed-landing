@@ -118,6 +118,37 @@
 }
 .testimonial cite { font-style: normal; }
 
+/* CTA form — section 07 */
+.cta-form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.cta-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 40px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: var(--font);
+  width: 220px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.cta-input::placeholder { color: rgba(255,255,255,0.3); }
+.cta-input:focus { border-color: rgba(167,139,250,0.5); }
+.cta-btn { cursor: pointer; background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.4); }
+.cta-btn:hover { background: rgba(167,139,250,0.25); border-color: rgba(167,139,250,0.7); }
+.cta-note {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.5px;
+  margin-bottom: 32px;
+}
+
 .footer-inline { margin-top: 40px; font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 1px; }
 .footer-inline a { color: rgba(255,255,255,0.3); text-decoration: none; margin: 0 8px; }
 .footer-inline a:hover { color: rgba(255,255,255,0.6); }
