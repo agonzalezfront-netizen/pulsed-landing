@@ -1,0 +1,48 @@
+/* ==============================================
+   PULSED — Glass Dark Design System Tokens
+   ============================================== */
+:root {
+  /* Backgrounds */
+  --bg:           #000000;
+  --bg-card:      rgba(255, 255, 255, 0.025);
+  --bg-card-hover: rgba(255, 255, 255, 0.045);
+
+  /* Borders */
+  --border:       rgba(255, 255, 255, 0.06);
+  --border-glow:  rgba(124, 58, 237, 0.4);
+  --border-cyan:  rgba(6, 182, 212, 0.35);
+
+  /* Accent colors */
+  --purple:       #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-dim:   #4c1d95;
+  --cyan:         #06b6d4;
+  --cyan-dim:     #0e7490;
+
+  /* Semantic */
+  --green:        #34d399;
+  --red:          #f87171;
+  --yellow:       #fbbf24;
+
+  /* Text */
+  --text:         rgba(255, 255, 255, 0.8);
+  --text-title:   #ffffff;
+  --text-dim:     rgba(255, 255, 255, 0.4);
+  --text-muted:   rgba(255, 255, 255, 0.25);
+
+  /* Glass card base */
+  --card-radius:  16px;
+  --card-blur:    20px;
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 80px;
+  --space-2xl: 120px;
+
+  /* Typography */
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
