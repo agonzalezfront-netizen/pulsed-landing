@@ -7,6 +7,12 @@
 }
 .section.active { display: flex; }
 
+/* Centered sections: center vertically */
+.section:has(.sec-content--centered) {
+  align-items: center;
+  padding-top: 60px;
+}
+
 .sec-content {
   max-width: 420px;
   opacity: 0;
@@ -228,49 +234,44 @@
 .footer-inline a { color: rgba(255,255,255,0.3); text-decoration: none; margin: 0 8px; }
 .footer-inline a:hover { color: rgba(255,255,255,0.6); }
 
-/* ─── Section 03 · Features split layout ─────────────────────────────────── */
+/* ─── Section 03 · Features centered layout ───────────────────────────────── */
 
-.sec-content--split {
-  max-width: 800px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 52px;
-}
-.split-left { flex: 0 0 280px; }
-.split-right { flex: 1; }
-
-/* Feature list */
-.feat-list {
-  list-style: none;
-  padding: 0; margin: 0;
+.sec-content--centered {
+  max-width: 500px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: 24px;
+  align-items: center;
 }
-.feat-list-item {
+.sec-content--centered .sec-h {
+  margin-bottom: 20px;
+}
+
+/* Mockup centered */
+.mockup-window {
+  width: 100%;
+  max-width: 460px;
+  margin-bottom: 20px;
+}
+
+/* Feature pills row */
+.feat-row {
   display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.fli-icon {
-  flex-shrink: 0;
-  color: #22d3ee;
-  margin-top: 2px;
-  line-height: 1;
+.feat-row-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 40px;
 }
-.fli-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 3px;
-}
-.fli-desc {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.35);
-  line-height: 1.55;
-}
+.fri-icon { color: #22d3ee; line-height: 1; flex-shrink: 0; }
+.fri-label { font-size: 0.68rem; color: rgba(255,255,255,0.55); white-space: nowrap; }
 
 /* ─── Dashboard mockup window ─────────────────────────────────────────────── */
 
@@ -307,7 +308,7 @@
 
 /* Window body */
 .mockup-body {
-  padding: 16px;
+  padding: 18px 20px;
   position: relative;
 }
 .mockup-section-label {
@@ -335,7 +336,7 @@
 }
 .course-row {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 150px 1fr 44px;
   align-items: center;
   gap: 10px;
 }
