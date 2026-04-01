@@ -37,6 +37,7 @@ async function goTo(idx) {
   field.morphTo(PULSED_SECTIONS[idx]);
   curIdx = idx;
   updateDots(idx);
+  hideScrollHint();
   // Trigger counter animation when landing on section 05
   if (idx === 4) {
     setTimeout(() => {
@@ -134,6 +135,14 @@ sections[2].querySelectorAll('.feat-list-item[data-feat]').forEach(item => {
     if (target) target.classList.remove('feat-highlighted');
   });
 });
+
+// Logo → home
+const navHome = document.getElementById('nav-home');
+if (navHome) navHome.addEventListener('click', e => { e.preventDefault(); goTo(0); });
+
+// Scroll hint — hide after first navigation
+const scrollHint = document.getElementById('scroll-hint');
+function hideScrollHint() { if (scrollHint) scrollHint.style.opacity = '0'; }
 
 // Touch
 let tY = 0;

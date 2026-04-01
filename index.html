@@ -8,14 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/sections.css?v=46">
+  <link rel="stylesheet" href="css/sections.css?v=48">
 </head>
 <body>
 <div id="bg"></div>
 <canvas id="net-canvas"></canvas>
 
 <nav id="main-nav">
-  <a class="nav-logo" href="#">Pulsed</a>
+  <a class="nav-logo" href="#" id="nav-home">Pulsed</a>
   <div class="nav-links">
     <a href="#">Producto</a>
     <a href="#">Features</a>
@@ -25,6 +25,11 @@
 </nav>
 
 <div id="nav-dots"></div>
+
+<!-- Scroll hint — bouncing arrow at bottom of hero -->
+<div id="scroll-hint">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+</div>
 
 <section class="section active" data-idx="0">
   <div class="sec-content sec-content--split pos-tl">
@@ -346,7 +351,7 @@
       <div><div class="stat-n" data-target="2" data-suffix="×">2×</div><div class="stat-l">Mejor visibilidad por curso*</div></div>
       <div><div class="stat-n" data-target="5" data-suffix="min">5min</div><div class="stat-l">Para detectar alumnos en riesgo*</div></div>
     </div>
-    <p class="sec-body" style="text-align:center;max-width:420px;margin:clamp(10px,1.2vh,18px) auto 0;font-size:clamp(0.58rem,0.62vw,0.75rem);opacity:0.5">* Objetivos de diseño basados en investigación con tutores de OTECs. Producto en fase piloto.</p>
+    <p class="sec-body" style="text-align:center;max-width:420px;margin:clamp(10px,1.2vh,18px) auto 0;font-size:clamp(0.58rem,0.62vw,0.75rem)">* Objetivos de diseño basados en investigación con tutores de OTECs. Producto en fase piloto.</p>
     <div class="testimonial-wide" style="margin-left:auto;margin-right:auto">
       <div class="tw-avatar">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(167,139,250,0.6)"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>

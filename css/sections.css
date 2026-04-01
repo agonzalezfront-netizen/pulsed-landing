@@ -36,7 +36,7 @@
   display: block;
   font-size: clamp(0.52rem, 0.55vw, 0.72rem); letter-spacing: 3px;
   text-transform: uppercase; font-weight: 700;
-  opacity: 0.35; margin-bottom: clamp(16px, 1.8vh, 28px);
+  opacity: 0.55; margin-bottom: clamp(16px, 1.8vh, 28px);
 }
 
 .sec-h {
@@ -47,7 +47,7 @@
 
 .sec-body {
   font-size: clamp(0.85rem, 0.9vw, 1.1rem);
-  color: rgba(255,255,255,0.32);
+  color: rgba(255,255,255,0.55);
   line-height: 1.8; margin-bottom: clamp(22px, 2.5vh, 40px);
 }
 
@@ -128,13 +128,13 @@
 }
 .pricing-desc {
   font-size: clamp(0.62rem, 0.68vw, 0.88rem);
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.55);
   line-height: 1.5;
   margin-bottom: clamp(12px, 1.2vh, 20px);
 }
 .pricing-status {
   font-size: clamp(0.58rem, 0.65vw, 0.82rem);
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
 }
 .pricing-status--cta {
@@ -180,7 +180,7 @@
 }
 .pain-card p {
   font-size: clamp(0.68rem, 0.72vw, 0.9rem);
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.55);
   line-height: 1.7;
 }
 
@@ -219,7 +219,7 @@
 }
 .pcm-row--none {
   font-size: clamp(0.55rem, 0.6vw, 0.7rem);
-  color: rgba(248,113,113,0.45);
+  color: rgba(248,113,113,0.80);
   text-align: center;
   letter-spacing: 0.5px;
   padding-top: 4px;
@@ -229,11 +229,11 @@
 .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
 .feat-item { padding: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; }
 .feat-item .ft { font-size: 0.8rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-.feat-item .fd { font-size: 0.68rem; color: rgba(255,255,255,0.3); line-height: 1.5; }
+.feat-item .fd { font-size: 0.68rem; color: rgba(255,255,255,0.50); line-height: 1.5; }
 
 .stats-row { display: flex; gap: clamp(36px, 4vw, 80px); margin-top: clamp(24px, 3vh, 48px); justify-content: center; }
 .stat-n { font-size: clamp(2.8rem, 3.5vw, 5.5rem); font-weight: 900; color: #a78bfa; line-height: 1; }
-.stat-l { font-size: clamp(0.65rem, 0.7vw, 0.9rem); color: rgba(255,255,255,0.3); margin-top: 6px; }
+.stat-l { font-size: clamp(0.65rem, 0.7vw, 0.9rem); color: rgba(255,255,255,0.50); margin-top: 6px; }
 
 .testimonial {
   margin-top: clamp(22px, 2.5vh, 40px);
@@ -254,7 +254,7 @@
 .testimonial footer {
   margin-top: 10px;
   font-size: clamp(0.6rem, 0.65vw, 0.82rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
 }
 .testimonial cite { font-style: normal; }
@@ -279,19 +279,19 @@
   outline: none;
   transition: border-color 0.2s;
 }
-.cta-input::placeholder { color: rgba(255,255,255,0.3); }
+.cta-input::placeholder { color: rgba(255,255,255,0.50); }
 .cta-input:focus { border-color: rgba(167,139,250,0.5); }
 .cta-btn { cursor: pointer; background: rgba(167,139,250,0.15); border-color: rgba(167,139,250,0.4); }
 .cta-btn:hover { background: rgba(167,139,250,0.25); border-color: rgba(167,139,250,0.7); }
 .cta-note {
   font-size: 0.62rem;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
   margin-bottom: 32px;
 }
 
-.footer-inline { margin-top: 40px; font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 1px; }
-.footer-inline a { color: rgba(255,255,255,0.3); text-decoration: none; margin: 0 8px; }
+.footer-inline { margin-top: 40px; font-size: 0.65rem; color: rgba(255,255,255,0.50); letter-spacing: 1px; }
+.footer-inline a { color: rgba(255,255,255,0.50); text-decoration: none; margin: 0 8px; }
 .footer-inline a:hover { color: rgba(255,255,255,0.6); }
 
 /* ─── Section 03 · Features split layout ─────────────────────────────────── */
@@ -334,7 +334,7 @@
 }
 .fli-icon { flex-shrink: 0; color: #22d3ee; margin-top: 2px; line-height: 1; }
 .fli-title { font-size: clamp(0.82rem, 1vw, 1.2rem); font-weight: 700; color: #fff; margin-bottom: 3px; }
-.fli-desc { font-size: clamp(0.68rem, 0.78vw, 0.96rem); color: rgba(255,255,255,0.35); line-height: 1.55; }
+.fli-desc { font-size: clamp(0.68rem, 0.78vw, 0.96rem); color: rgba(255,255,255,0.55); line-height: 1.55; }
 
 /* Mockup: centered in right column, max size but proportional */
 .mockup-window {
@@ -369,7 +369,7 @@
 }
 .chrome-title {
   font-size: 0.6rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
   margin-left: 6px;
 }
@@ -437,7 +437,7 @@
 }
 .course-pct {
   font-size: clamp(0.58rem, 0.65vw, 0.82rem);
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.55);
   white-space: nowrap;
   text-align: right;
 }
@@ -493,7 +493,7 @@
 }
 .mockup-stat-l {
   font-size: clamp(0.52rem, 0.58vw, 0.75rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.3px;
 }
 
@@ -522,7 +522,7 @@
 
 .hb-label {
   font-size: clamp(0.62rem, 0.68vw, 0.85rem);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
   margin-bottom: clamp(6px, 0.7vh, 10px);
 }
@@ -536,7 +536,7 @@
 
 .hb-sub {
   font-size: clamp(0.65rem, 0.72vw, 0.88rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
   line-height: 1.45;
 }
 
@@ -584,7 +584,7 @@ h1.sec-h {
   gap: 8px;
   margin-top: clamp(18px, 2.2vh, 32px);
   font-size: clamp(0.62rem, 0.68vw, 0.85rem);
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.3px;
 }
 
@@ -623,7 +623,7 @@ h1.sec-h {
   font-size: clamp(0.62rem, 0.68vw, 0.85rem);
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.50);
   font-weight: 700;
 }
 
@@ -740,7 +740,7 @@ h1.sec-h {
 
 .hp-metric-l {
   font-size: clamp(0.52rem, 0.58vw, 0.72rem);
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.3px;
 }
 
@@ -784,7 +784,7 @@ h1.sec-h {
 
 .hp-status-info {
   font-size: clamp(0.55rem, 0.6vw, 0.74rem);
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.50);
 }
 
 /* ─── Section 02 · Excel mock ─────────────────────────────────────────────── */
@@ -802,7 +802,7 @@ h1.sec-h {
   grid-template-columns: 1.4fr 1.4fr 0.7fr 0.7fr;
   padding: 5px 8px;
   background: rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.50);
   font-weight: 600;
   letter-spacing: 0.5px;
   gap: 4px;
@@ -813,13 +813,13 @@ h1.sec-h {
   grid-template-columns: 1.4fr 1.4fr 0.7fr 0.7fr;
   padding: 5px 8px;
   border-top: 1px solid rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.55);
   gap: 4px;
 }
 
 .pem-warn {
   background: rgba(248,113,113,0.06);
-  color: rgba(248,113,113,0.65);
+  color: rgba(248,113,113,0.80);
 }
 
 /* ─── Section 03 · Feat hover highlight ───────────────────────────────────── */
@@ -883,7 +883,7 @@ h1.sec-h {
 
 .tw-quote footer {
   font-size: clamp(0.62rem, 0.68vw, 0.82rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
 }
 
@@ -933,7 +933,7 @@ h1.sec-h {
 
 .step-desc {
   font-size: clamp(0.72rem, 0.78vw, 0.95rem);
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.55);
   line-height: 1.6;
 }
 
@@ -1107,7 +1107,7 @@ h1.sec-h {
 
 .ma-time {
   flex-shrink: 0;
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.50);
   font-size: clamp(0.5rem, 0.55vw, 0.7rem);
 }
 
@@ -1139,7 +1139,7 @@ h1.sec-h {
   gap: 7px;
   margin-bottom: clamp(10px, 1.2vh, 18px);
   font-size: clamp(0.56rem, 0.6vw, 0.72rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.5px;
   text-transform: uppercase;
   font-weight: 600;
@@ -1155,13 +1155,13 @@ h1.sec-h {
 
 .fmc-sublabel {
   font-size: clamp(0.6rem, 0.65vw, 0.8rem);
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.50);
   line-height: 1.4;
 }
 
 .fmc-desc {
   font-size: clamp(0.6rem, 0.65vw, 0.8rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
   line-height: 1.65;
   margin-top: clamp(6px, 0.7vh, 10px);
   margin-bottom: clamp(8px, 0.9vh, 14px);
@@ -1184,7 +1184,7 @@ h1.sec-h {
   gap: 6px;
   margin-top: clamp(10px, 1.2vh, 16px);
   font-size: clamp(0.56rem, 0.6vw, 0.72rem);
-  color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.50);
 }
 
 /* Alert mini-list inside the alerts card */
@@ -1200,7 +1200,7 @@ h1.sec-h {
   align-items: center;
   gap: 7px;
   font-size: clamp(0.56rem, 0.6vw, 0.72rem);
-  color: rgba(248,113,113,0.55);
+  color: rgba(248,113,113,0.80);
   padding: 4px 7px;
   background: rgba(248,113,113,0.05);
   border-radius: 5px;
@@ -1335,7 +1335,7 @@ h1.sec-h {
 
 .stl-desc {
   font-size: clamp(0.72rem, 0.78vw, 0.96rem);
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.55);
   line-height: 1.65;
 }
 
@@ -1403,7 +1403,7 @@ h1.sec-h {
 
 .pilot-perk-desc {
   font-size: clamp(0.68rem, 0.75vw, 0.9rem);
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.55);
   line-height: 1.6;
 }
 
@@ -1428,7 +1428,7 @@ h1.sec-h {
   justify-content: center;
   gap: 8px;
   font-size: clamp(0.62rem, 0.68vw, 0.82rem);
-  color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.50);
 }
 .pilot-spots strong { color: rgba(255,255,255,0.55); }
 
