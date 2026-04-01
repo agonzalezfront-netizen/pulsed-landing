@@ -497,6 +497,157 @@
   letter-spacing: 0.3px;
 }
 
+/* ─── Section 01 · Hero bento ─────────────────────────────────────────────── */
+
+.hero-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(8px, 1vw, 14px);
+  width: min(100%, clamp(280px, 32vw, 500px));
+}
+
+.hb-card {
+  padding: clamp(14px, 1.5vw, 24px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: clamp(10px, 1vw, 16px);
+}
+
+.hb-card--sync {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hb-label {
+  font-size: clamp(0.58rem, 0.62vw, 0.75rem);
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.hb-num {
+  font-size: clamp(1.8rem, 2.2vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hb-sub {
+  font-size: clamp(0.6rem, 0.65vw, 0.78rem);
+  color: rgba(255,255,255,0.28);
+  line-height: 1.4;
+}
+
+.hb-sync-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+  animation: alertPulse 2s ease-in-out infinite;
+}
+
+/* ─── Section 02 · Excel mock ─────────────────────────────────────────────── */
+
+.pain-excel-mock {
+  margin-top: clamp(12px, 1.4vh, 20px);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  font-size: clamp(0.52rem, 0.58vw, 0.7rem);
+}
+
+.pem-header {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 0.7fr 0.7fr;
+  padding: 5px 8px;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.3);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  gap: 4px;
+}
+
+.pem-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1.4fr 0.7fr 0.7fr;
+  padding: 5px 8px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.35);
+  gap: 4px;
+}
+
+.pem-warn {
+  background: rgba(248,113,113,0.06);
+  color: rgba(248,113,113,0.65);
+}
+
+/* ─── Section 03 · Feat hover highlight ───────────────────────────────────── */
+
+[data-feat-target] {
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+  border-radius: 8px;
+}
+
+[data-feat-target].feat-highlighted {
+  background: rgba(34,211,238,0.06);
+  box-shadow: 0 0 0 1px rgba(34,211,238,0.2);
+}
+
+.feat-list-item {
+  cursor: default;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin: -6px -8px;
+  transition: background 0.2s;
+}
+.feat-list-item:hover { background: rgba(34,211,238,0.05); }
+.feat-list-item.feat-active .fli-icon { color: #22d3ee; }
+.feat-list-item.feat-active .fli-title { color: #22d3ee; }
+
+/* ─── Section 05 · Testimonial wide ──────────────────────────────────────── */
+
+.testimonial-wide {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 28px);
+  margin-top: clamp(22px, 2.5vh, 40px);
+  padding: clamp(18px, 2vw, 32px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-left: 2px solid rgba(167,139,250,0.5);
+  border-radius: 12px;
+  max-width: clamp(480px, 48vw, 860px);
+  text-align: left;
+}
+
+.tw-avatar {
+  flex-shrink: 0;
+  width: clamp(38px, 3.5vw, 54px);
+  height: clamp(38px, 3.5vw, 54px);
+  border-radius: 50%;
+  background: rgba(167,139,250,0.1);
+  border: 1px solid rgba(167,139,250,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tw-quote p {
+  font-size: clamp(0.82rem, 0.9vw, 1.08rem);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.tw-quote footer {
+  font-size: clamp(0.62rem, 0.68vw, 0.82rem);
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.5px;
+}
+
 /* ─── Section 04 · Steps flow ─────────────────────────────────────────────── */
 
 .steps-flow {

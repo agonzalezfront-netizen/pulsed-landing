@@ -1,0 +1,69 @@
+/* ─── Top Nav ──────────────────────────────────────────────────────────────── */
+
+#main-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 2vh, 26px) clamp(32px, 4vw, 72px);
+}
+
+.nav-logo {
+  font-size: clamp(0.95rem, 1.1vw, 1.3rem);
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(20px, 2.5vw, 40px);
+}
+
+.nav-links a {
+  font-size: clamp(0.72rem, 0.78vw, 0.92rem);
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: rgba(255,255,255,0.85); }
+
+/* ─── Section dots ─────────────────────────────────────────────────────────── */
+
+#nav-dots {
+  position: fixed;
+  right: clamp(20px, 2.5vw, 36px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vh, 14px);
+  align-items: center;
+}
+
+#nav-dots span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, height 0.3s;
+}
+
+#nav-dots span:hover {
+  background: rgba(255,255,255,0.5);
+  transform: scale(1.3);
+}
+
+#nav-dots span.active {
+  background: #fff;
+  height: 18px;
+  border-radius: 3px;
+  transform: none;
+}

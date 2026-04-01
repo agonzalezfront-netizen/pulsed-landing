@@ -35,6 +35,12 @@ async function goTo(idx) {
   field.morphTo(PULSED_SECTIONS[idx]);
   curIdx = idx;
   updateDots(idx);
+  // Trigger counter animation when landing on section 05
+  if (idx === 4) {
+    setTimeout(() => {
+      sections[4].querySelectorAll('.stat-n[data-target]').forEach(countUp);
+    }, 200);
+  }
   setTimeout(() => { busy = false; }, 800);
 }
 
@@ -49,6 +55,35 @@ window.addEventListener('wheel', e => {
   if (busy) return;
   e.deltaY > 0 ? goTo(curIdx + 1) : goTo(curIdx - 1);
 }, { passive: false });
+
+// ── Counter animation (section 05, idx 4) ───────────────────────────────────
+function countUp(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1400;
+  const start = Date.now();
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const tick = () => {
+    const p = Math.min(1, (Date.now() - start) / duration);
+    el.textContent = Math.round(ease(p) * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+// ── Feat-list hover → mockup highlight (section 03, idx 2) ──────────────────
+sections[2].querySelectorAll('.feat-list-item[data-feat]').forEach(item => {
+  const feat = item.dataset.feat;
+  const target = sections[2].querySelector(`[data-feat-target="${feat}"]`);
+  item.addEventListener('mouseenter', () => {
+    item.classList.add('feat-active');
+    if (target) target.classList.add('feat-highlighted');
+  });
+  item.addEventListener('mouseleave', () => {
+    item.classList.remove('feat-active');
+    if (target) target.classList.remove('feat-highlighted');
+  });
+});
 
 // Touch
 let tY = 0;
