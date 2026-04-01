@@ -560,7 +560,7 @@ h1.sec-h {
 .section[data-idx="0"] .sec-body {
   font-size: clamp(0.92rem, 1.05vw, 1.3rem);
   line-height: 1.7;
-  max-width: clamp(340px, 34vw, 560px);
+  max-width: clamp(380px, 42vw, 700px);
 }
 
 .section[data-idx="0"] .split-left {

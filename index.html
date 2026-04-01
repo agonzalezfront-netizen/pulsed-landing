@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulsed — Gestiona tus OTECs con precisión total</title>
+  <title>Pulsed — Gestiona tu OTEC con precisión total</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/sections.css?v=35">
+  <link rel="stylesheet" href="css/sections.css?v=38">
 </head>
 <body>
 <div id="bg"></div>
@@ -31,7 +31,7 @@
     <div class="split-left">
       <div class="hero-badge">🇨🇱 Diseñado para OTECs en Chile</div>
       <span class="sec-tag">01 · Pulsed</span>
-      <h1 class="sec-h">Gestiona tus OTECs<br>con <span class="ac-purple">precisión total</span></h1>
+      <h1 class="sec-h">Gestiona tu OTEC<br>con <span class="ac-purple">precisión total</span></h1>
       <p class="sec-body">La plataforma que conecta datos SENCE, Pipedrive y comunicaciones con tus estudiantes en un solo lugar.</p>
       <div class="hero-ctas">
         <a class="btn btn--primary" href="#">Solicitar Demo ↗</a>
@@ -55,10 +55,10 @@
           <div class="hp-donut">
             <svg viewBox="0 0 120 120" class="hp-donut-svg">
               <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="7"/>
-              <circle cx="60" cy="60" r="52" fill="none" stroke="url(#donutGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="19.6" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="url(#donutGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="326.73" transform="rotate(-90 60 60)" class="hp-donut-arc"/>
               <defs><linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
             </svg>
-            <div class="hp-donut-value">94<span class="hp-donut-pct">%</span></div>
+            <div class="hp-donut-value"><span class="hp-count" data-target="94">0</span><span class="hp-donut-pct">%</span></div>
           </div>
           <div class="hp-main-info">
             <div class="hp-main-label">Tasa de contacto</div>
@@ -72,17 +72,17 @@
         <!-- Secondary metrics — hierarchy: one big + two small -->
         <div class="hp-metrics">
           <div class="hp-metric hp-metric--hero">
-            <div class="hp-metric-n">12</div>
+            <div class="hp-metric-n hp-count" data-target="12">0</div>
             <div class="hp-metric-l">Cursos activos</div>
           </div>
           <div class="hp-metric-sep"></div>
           <div class="hp-metric">
-            <div class="hp-metric-n hp-metric-n--sm">247</div>
+            <div class="hp-metric-n hp-metric-n--sm hp-count" data-target="247">0</div>
             <div class="hp-metric-l">Alumnos</div>
           </div>
           <div class="hp-metric-sep"></div>
           <div class="hp-metric">
-            <div class="hp-metric-n hp-metric-n--sm">98%</div>
+            <div class="hp-metric-n hp-metric-n--sm hp-count" data-target="98" data-suffix="%">0</div>
             <div class="hp-metric-l">Asistencia prom.</div>
           </div>
         </div>
@@ -330,7 +330,7 @@
     <!-- ── Right: text anchor ──────────────────────────────────────────────── -->
     <div class="steps-text">
       <span class="sec-tag">04 · Cómo funciona</span>
-      <h2 class="sec-h">Tres pasos hacia<br>el <span class="ac-green">control total</span></h2>
+      <h2 class="sec-h">Tres pasos hacia el<br><span class="ac-green">control total</span></h2>
       <p class="sec-body">En menos de 5 minutos tienes visibilidad total sobre tus cursos y alumnos.</p>
     </div>
 
@@ -404,7 +404,7 @@
   <div class="sec-content pos-ct">
     <span class="sec-tag" style="display:block;text-align:center">07 · Empezar</span>
     <h2 class="sec-h">Tu OTEC merece<br>una herramienta <span class="ac-purple">a su altura</span></h2>
-    <p class="sec-body" style="max-width:340px;margin:0 auto 20px">Conversemos sobre tu OTEC. Te mostramos cómo Pulsed puede ayudarte.</p>
+    <p class="sec-body" style="max-width:480px;margin:0 auto 20px">Conversemos sobre tu OTEC. Te mostramos cómo Pulsed puede ayudarte.</p>
     <form class="cta-form" onsubmit="return false;">
       <input type="email" class="cta-input" placeholder="tu@otec.cl" required aria-label="Email">
       <button type="submit" class="btn cta-btn">Solicitar Demo ↗</button>

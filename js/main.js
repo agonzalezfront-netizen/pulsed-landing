@@ -44,10 +44,58 @@ async function goTo(idx) {
   setTimeout(() => { busy = false; }, 800);
 }
 
-// Init — add CSS class for initial visibility (avoids GSAP inline style conflicts on load)
+// Init — hero entrance animation
 field.morphTo(PULSED_SECTIONS[0]);
-const _initContent = sections[0].querySelector('.sec-content');
-if (_initContent) _initContent.classList.add('is-visible');
+(() => {
+  const hero = sections[0].querySelector('.sec-content');
+  if (!hero) return;
+
+  const left  = hero.querySelector('.split-left');
+  const panel = hero.querySelector('.hero-panel');
+  if (!left) return;
+
+  const leftEls = [
+    left.querySelector('.hero-badge'),
+    left.querySelector('.sec-tag'),
+    left.querySelector('h1'),
+    left.querySelector('.sec-body'),
+    left.querySelector('.hero-ctas'),
+    left.querySelector('.hero-trust'),
+  ].filter(Boolean);
+
+  // Show container, then animate children FROM hidden states
+  hero.classList.add('is-visible');
+
+  const tl = gsap.timeline({ delay: 0.35 });
+
+  // Left elements stagger up
+  tl.from(leftEls, {
+    opacity: 0, y: 28, duration: 0.55,
+    ease: 'power2.out', stagger: 0.1
+  });
+
+  // Panel slides in from right
+  if (panel) {
+    tl.from(panel, {
+      opacity: 0, x: 50, scale: 0.97, duration: 0.85,
+      ease: 'power2.out'
+    }, 0.45);
+
+    // Donut arc fills up
+    const arc = panel.querySelector('.hp-donut-arc');
+    if (arc) {
+      tl.to(arc, {
+        attr: { 'stroke-dashoffset': 19.6 },
+        duration: 1.3, ease: 'power2.out'
+      }, 0.9);
+    }
+
+    // Numbers count up after panel appears
+    tl.add(() => {
+      panel.querySelectorAll('.hp-count').forEach(countUp);
+    }, 1.0);
+  }
+})();
 
 // Wheel
 window.addEventListener('wheel', e => {
