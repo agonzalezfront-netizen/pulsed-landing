@@ -5,7 +5,9 @@ import { animateIn, animateOut } from './text-animations.js';
 const field = new ParticleField({
   canvas: document.getElementById('net-canvas'),
   bgEl:   document.getElementById('bg'),
-  count: 2400, mouseRadius: 180, impulse: 14,
+  count: window.innerWidth < 768 ? 500 : 2400,
+  mouseRadius: window.innerWidth < 768 ? 100 : 180,
+  impulse: 14,
   spring: 0.7, damping: 0.96, morphDur: 1.5, sparkleRatio: 0.08,
 });
 
