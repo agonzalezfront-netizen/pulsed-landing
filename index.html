@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/sections.css?v=11">
+  <link rel="stylesheet" href="css/sections.css?v=35">
 </head>
 <body>
 <div id="bg"></div>
@@ -37,24 +37,70 @@
         <a class="btn btn--primary" href="#">Solicitar Demo ↗</a>
         <a class="btn btn--ghost" href="#">Ver cómo funciona</a>
       </div>
+      <div class="hero-trust">
+        <span class="hero-trust-dot"></span>
+        Actualmente en <strong>piloto</strong> con OTECs en Chile · Acceso anticipado disponible
+      </div>
     </div>
     <div class="split-right">
-      <div class="hero-bento">
-        <div class="hb-card hb-card--alert">
-          <div class="hb-label">Alertas activas</div>
-          <div class="hb-num ac-red">7</div>
-          <div class="hb-sub">alumnos necesitan contacto hoy</div>
+      <div class="hero-panel">
+        <!-- Header -->
+        <div class="hp-header">
+          <div class="hp-title">Panel de Control</div>
+          <div class="hp-live"><span class="hp-live-dot"></span>En vivo</div>
         </div>
-        <div class="hb-card hb-card--stat">
-          <div class="hb-label">Tasa de contacto</div>
-          <div class="hb-num ac-cyan">94%</div>
-          <div class="hb-sub">↑ 12% vs semana anterior</div>
+
+        <!-- Main metric: donut + info -->
+        <div class="hp-main">
+          <div class="hp-donut">
+            <svg viewBox="0 0 120 120" class="hp-donut-svg">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="7"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="url(#donutGrad)" stroke-width="7" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="19.6" transform="rotate(-90 60 60)"/>
+              <defs><linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#818cf8"/></linearGradient></defs>
+            </svg>
+            <div class="hp-donut-value">94<span class="hp-donut-pct">%</span></div>
+          </div>
+          <div class="hp-main-info">
+            <div class="hp-main-label">Tasa de contacto</div>
+            <div class="hp-main-trend">↑ 12% vs semana anterior</div>
+          </div>
         </div>
-        <div class="hb-card hb-card--sync">
-          <div class="hb-sync-dot"></div>
-          <div>
-            <div class="hb-label">SENCE sincronizado</div>
-            <div class="hb-sub">Hace 3 min · 12 cursos activos</div>
+
+        <!-- Divider -->
+        <div class="hp-divider"></div>
+
+        <!-- Secondary metrics — hierarchy: one big + two small -->
+        <div class="hp-metrics">
+          <div class="hp-metric hp-metric--hero">
+            <div class="hp-metric-n">12</div>
+            <div class="hp-metric-l">Cursos activos</div>
+          </div>
+          <div class="hp-metric-sep"></div>
+          <div class="hp-metric">
+            <div class="hp-metric-n hp-metric-n--sm">247</div>
+            <div class="hp-metric-l">Alumnos</div>
+          </div>
+          <div class="hp-metric-sep"></div>
+          <div class="hp-metric">
+            <div class="hp-metric-n hp-metric-n--sm">98%</div>
+            <div class="hp-metric-l">Asistencia prom.</div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="hp-divider"></div>
+
+        <!-- Status indicators — bigger, more visible -->
+        <div class="hp-statuses">
+          <div class="hp-status">
+            <span class="hp-status-dot hp-status-dot--green"></span>
+            <span class="hp-status-label">SENCE</span>
+            <span class="hp-status-info">Sincronizado · hace 3 min</span>
+          </div>
+          <div class="hp-status">
+            <span class="hp-status-dot hp-status-dot--green"></span>
+            <span class="hp-status-label">Pipedrive</span>
+            <span class="hp-status-info">Conectado · 12 deals activos</span>
           </div>
         </div>
       </div>
@@ -106,44 +152,15 @@
 </section>
 
 <section class="section" data-idx="2">
-  <div class="sec-content sec-content--split pos-tl">
-    <!-- Left column -->
-    <div class="split-left">
-      <span class="sec-tag">03 · Features</span>
-      <h2 class="sec-h">Todo lo que necesitas, <span class="ac-cyan">conectado</span></h2>
-      <ul class="feat-list">
-        <li class="feat-list-item" data-feat="sence">
-          <span class="fli-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span>
-          <div>
-            <div class="fli-title">Sync SENCE</div>
-            <div class="fli-desc">Datos en tiempo real desde el portal del Estado.</div>
-          </div>
-        </li>
-        <li class="feat-list-item" data-feat="crm">
-          <span class="fli-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
-          <div>
-            <div class="fli-title">CRM Pipedrive</div>
-            <div class="fli-desc">Seguimiento completo de cada alumno.</div>
-          </div>
-        </li>
-        <li class="feat-list-item" data-feat="alerts">
-          <span class="fli-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
-          <div>
-            <div class="fli-title">Alertas inteligentes</div>
-            <div class="fli-desc">Notificaciones priorizadas por riesgo.</div>
-          </div>
-        </li>
-        <li class="feat-list-item" data-feat="roles">
-          <span class="fli-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="14" width="6" height="5" rx="1"/><rect x="16" y="14" width="6" height="5" rx="1"/><path d="M12 7v4"/><path d="M5 14v-3h14v3"/></svg></span>
-          <div>
-            <div class="fli-title">Roles jerárquicos</div>
-            <div class="fli-desc">Director, Tutor, Ayudante con permisos propios.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- Right column: CSS Dashboard mockup -->
-    <div class="split-right">
+  <div class="sec-content sec-content--wide pos-tl">
+    <span class="sec-tag">03 · Features</span>
+    <h2 class="sec-h">Todo lo que necesitas,<br><span class="ac-cyan">conectado</span></h2>
+    <p class="sec-body">Una plataforma que unifica SENCE, Pipedrive y comunicaciones en un solo dashboard.</p>
+
+    <!-- L-shape bento: tall mockup left · 2 data cards right -->
+    <div class="feat-bento">
+
+      <!-- Tall: dashboard mockup (spans 2 rows) -->
       <div class="mockup-window">
         <div class="mockup-chrome">
           <span class="chrome-dot" style="background:#ff5f56"></span>
@@ -154,7 +171,7 @@
         <div class="mockup-body">
           <div class="mockup-section-label">Gestión de Cursos</div>
           <div class="mockup-see-all">↗ Ver todo</div>
-          <div class="mockup-course-list" data-feat-target="sence">
+          <div class="mockup-course-list">
             <div class="course-row">
               <span class="course-name">Desarrollo Fullstack</span>
               <div class="progress-track"><div class="progress-fill" style="--w:82%"></div></div>
@@ -162,26 +179,25 @@
             </div>
             <div class="course-row">
               <span class="course-name">Diseño UX/UI</span>
-              <div class="progress-track"><div class="progress-fill" style="--w:74%; animation-delay:0.15s"></div></div>
+              <div class="progress-track"><div class="progress-fill" style="--w:74%;animation-delay:0.15s"></div></div>
               <span class="course-pct">74%</span>
             </div>
             <div class="course-row">
               <span class="course-name">Data Analytics</span>
-              <div class="progress-track"><div class="progress-fill" style="--w:61%; animation-delay:0.3s"></div></div>
+              <div class="progress-track"><div class="progress-fill" style="--w:61%;animation-delay:0.3s"></div></div>
               <span class="course-pct">61%</span>
             </div>
             <div class="course-row">
               <span class="course-name">Ciberseguridad</span>
-              <div class="progress-track"><div class="progress-fill progress-fill--warn" style="--w:43%; animation-delay:0.45s"></div></div>
+              <div class="progress-track"><div class="progress-fill progress-fill--warn" style="--w:43%;animation-delay:0.45s"></div></div>
               <span class="course-pct course-pct--warn">43% ⚠</span>
             </div>
           </div>
-          <div class="mockup-alert-row" data-feat-target="alerts">
+          <div class="mockup-alert-row">
             <span class="alert-dot"></span>
             <span class="alert-text">3 alumnos sin contacto esta semana</span>
           </div>
-          <!-- Stats row -->
-          <div class="mockup-stats-row" data-feat-target="roles">
+          <div class="mockup-stats-row">
             <div class="mockup-stat">
               <div class="mockup-stat-n">12</div>
               <div class="mockup-stat-l">Cursos activos</div>
@@ -195,64 +211,149 @@
               <div class="mockup-stat-l">Alertas activas</div>
             </div>
           </div>
+          <!-- Extra section to fill the tall card -->
+          <div class="mockup-section-label" style="margin-top:clamp(12px,1.4vh,20px)">Últimas Acciones</div>
+          <div class="mockup-actions">
+            <div class="ma-row">
+              <span class="ma-badge ma-badge--green">Contactado</span>
+              <span class="ma-name">P. Rojas — Desarrollo Fullstack</span>
+              <span class="ma-time">hace 2h</span>
+            </div>
+            <div class="ma-row">
+              <span class="ma-badge ma-badge--yellow">Pendiente</span>
+              <span class="ma-name">C. Muñoz — Ciberseguridad</span>
+              <span class="ma-time">hace 4h</span>
+            </div>
+            <div class="ma-row">
+              <span class="ma-badge ma-badge--red">Escalado</span>
+              <span class="ma-name">M. González — Data Analytics</span>
+              <span class="ma-time">ayer</span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Top-right: Sync + CRM metrics -->
+      <div class="fmc">
+        <div class="fmc-head">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          Sync SENCE
+        </div>
+        <div class="fmc-num ac-green">12</div>
+        <div class="fmc-sublabel">cursos sincronizados</div>
+        <div class="fmc-status"><span class="fmc-dot fmc-dot--green"></span>En línea · hace 3 min</div>
+        <hr class="fmc-divider">
+        <div class="fmc-head">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          CRM Pipedrive
+        </div>
+        <div class="fmc-num ac-lav">247</div>
+        <div class="fmc-sublabel">alumnos en seguimiento</div>
+      </div>
+
+      <!-- Bottom-right: Alerts + Roles -->
+      <div class="fmc">
+        <div class="fmc-head">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          Alertas inteligentes
+        </div>
+        <div class="fmc-alert-list">
+          <div class="fmc-alert-item"><span class="fmc-dot fmc-dot--red"></span>C. Muñoz · 5 días sin contacto</div>
+          <div class="fmc-alert-item"><span class="fmc-dot fmc-dot--red"></span>M. González · asistencia 43%</div>
+        </div>
+        <hr class="fmc-divider">
+        <div class="fmc-head">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="14" width="6" height="5" rx="1"/><rect x="16" y="14" width="6" height="5" rx="1"/><path d="M12 7v4"/><path d="M5 14v-3h14v3"/></svg>
+          Roles jerárquicos
+        </div>
+        <div class="fmc-roles">
+          <div class="fmc-role-row">
+            <span class="fmc-role-badge" style="background:rgba(167,139,250,0.15);color:rgba(167,139,250,0.85)">Admin</span>
+            <span class="fmc-role-line"></span>
+            <span class="fmc-role-badge" style="background:rgba(34,211,238,0.1);color:rgba(34,211,238,0.75)">Director</span>
+          </div>
+          <div class="fmc-role-row" style="padding-left:10px">
+            <span class="fmc-role-line" style="min-width:14px;flex:none"></span>
+            <span class="fmc-role-badge" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.45)">Tutor</span>
+            <span class="fmc-role-line"></span>
+            <span class="fmc-role-badge" style="background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.35)">Ayudante</span>
+          </div>
+        </div>
+        <div class="fmc-status"><span class="fmc-dot fmc-dot--cyan"></span>4 niveles de acceso</div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <section class="section" data-idx="3">
-  <div class="sec-content sec-content--wide pos-ct">
-    <span class="sec-tag" style="display:block;text-align:center">04 · Cómo funciona</span>
-    <h2 class="sec-h" style="text-align:center">Tres pasos hacia<br>el <span class="ac-green">control total</span></h2>
-    <p class="sec-body" style="text-align:center;max-width:480px;margin:0 auto clamp(28px,3vh,48px)">En menos de 5 minutos tienes visibilidad total sobre tus cursos y alumnos.</p>
-    <div class="steps-flow">
-      <div class="step-card">
-        <div class="step-num ac-green">01</div>
-        <div class="step-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(52,211,153,0.7)"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+  <div class="sec-content sec-content--steps-full">
+
+    <!-- ── Left: vertical timeline ─────────────────────────────────────────── -->
+    <div class="steps-timeline">
+      <div class="stl-line"></div>
+
+      <div class="stl-step">
+        <div class="stl-dot">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(52,211,153,0.8)"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         </div>
-        <div class="step-title">Conecta</div>
-        <div class="step-desc">Vincula Pipedrive y sube tus archivos SENCE. Sin configuración compleja.</div>
+        <div class="stl-card">
+          <div class="stl-num ac-green">01</div>
+          <div class="stl-title">Conecta</div>
+          <div class="stl-desc">Vincula Pipedrive y sube tus archivos SENCE. Sin configuración compleja.</div>
+        </div>
       </div>
-      <div class="step-arrow">→</div>
-      <div class="step-card">
-        <div class="step-num ac-green">02</div>
-        <div class="step-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(52,211,153,0.7)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+
+      <div class="stl-step">
+        <div class="stl-dot">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(52,211,153,0.8)"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </div>
-        <div class="step-title">Sincroniza</div>
-        <div class="step-desc">Pulsed cruza asistencias, estados Pipedrive y alertas de forma automática.</div>
+        <div class="stl-card">
+          <div class="stl-num ac-green">02</div>
+          <div class="stl-title">Sincroniza</div>
+          <div class="stl-desc">Pulsed cruza asistencias, estados Pipedrive y alertas de forma automática.</div>
+        </div>
       </div>
-      <div class="step-arrow">→</div>
-      <div class="step-card">
-        <div class="step-num ac-green">03</div>
-        <div class="step-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(52,211,153,0.7)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+
+      <div class="stl-step">
+        <div class="stl-dot">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(52,211,153,0.8)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <div class="step-title">Actúa</div>
-        <div class="step-desc">Prioriza alumnos en riesgo y contáctalos directamente desde la plataforma.</div>
+        <div class="stl-card">
+          <div class="stl-num ac-green">03</div>
+          <div class="stl-title">Actúa</div>
+          <div class="stl-desc">Prioriza alumnos en riesgo y contáctalos directamente desde la plataforma.</div>
+        </div>
       </div>
     </div>
+
+    <!-- ── Right: text anchor ──────────────────────────────────────────────── -->
+    <div class="steps-text">
+      <span class="sec-tag">04 · Cómo funciona</span>
+      <h2 class="sec-h">Tres pasos hacia<br>el <span class="ac-green">control total</span></h2>
+      <p class="sec-body">En menos de 5 minutos tienes visibilidad total sobre tus cursos y alumnos.</p>
+    </div>
+
   </div>
 </section>
 
 <section class="section" data-idx="4">
   <div class="sec-content pos-ct">
-    <span class="sec-tag" style="display:block;text-align:center">05 · Resultados</span>
-    <h2 class="sec-h">Números que<br><span class="ac-lav">hablan solos</span></h2>
+    <span class="sec-tag" style="display:block;text-align:center">05 · Diseñado para</span>
+    <h2 class="sec-h">El impacto que<br><span class="ac-lav">buscamos generar</span></h2>
     <div class="stats-row">
-      <div><div class="stat-n" data-target="87" data-suffix="%">87%</div><div class="stat-l">Menos tiempo admin</div></div>
-      <div><div class="stat-n" data-target="3" data-suffix="×">3×</div><div class="stat-l">Más retención</div></div>
-      <div><div class="stat-n" data-target="40" data-suffix="+">40+</div><div class="stat-l">OTECs activas</div></div>
+      <div><div class="stat-n" data-target="80" data-suffix="%">80%</div><div class="stat-l">Menos tiempo en tareas admin*</div></div>
+      <div><div class="stat-n" data-target="2" data-suffix="×">2×</div><div class="stat-l">Mejor visibilidad por curso*</div></div>
+      <div><div class="stat-n" data-target="5" data-suffix="min">5min</div><div class="stat-l">Para detectar alumnos en riesgo*</div></div>
     </div>
-    <div class="testimonial-wide">
+    <p class="sec-body" style="text-align:center;max-width:420px;margin:clamp(10px,1.2vh,18px) auto 0;font-size:clamp(0.58rem,0.62vw,0.75rem);opacity:0.5">* Objetivos de diseño basados en investigación con tutores de OTECs. Producto en fase piloto.</p>
+    <div class="testimonial-wide" style="margin-left:auto;margin-right:auto">
       <div class="tw-avatar">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(167,139,250,0.6)"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
       </div>
       <blockquote class="tw-quote">
-        <p>"Antes perdía toda la mañana del lunes cruzando planillas. Ahora abro Pulsed y en 2 minutos sé exactamente quién necesita atención."</p>
-        <footer>— <cite>Tutora de OTEC, Chile · cliente piloto</cite></footer>
+        <p>"Cuando vi el prototipo, lo primero que pensé fue: esto es exactamente lo que necesitábamos hace años. Por fin alguien entiende el problema."</p>
+        <footer>— <cite>Coordinadora académica · OTEC en fase piloto</cite></footer>
       </blockquote>
     </div>
   </div>
@@ -290,10 +391,10 @@
           <div class="pilot-perk-desc">Tu feedback moldea las próximas funciones. Las OTECs piloto tienen voz directa.</div>
         </div>
       </div>
-      <a class="btn pilot-cta" href="#">Solicitar acceso al piloto ↗</a>
+      <a class="btn pilot-cta" href="#">Agendar una demo ↗</a>
       <div class="pilot-spots">
         <span class="pilot-spots-dot"></span>
-        Quedan <strong>8 cupos</strong> disponibles para esta ronda
+        Cupos limitados · Te mostramos el producto con <strong>datos de ejemplo</strong>
       </div>
     </div>
   </div>
@@ -303,7 +404,7 @@
   <div class="sec-content pos-ct">
     <span class="sec-tag" style="display:block;text-align:center">07 · Empezar</span>
     <h2 class="sec-h">Tu OTEC merece<br>una herramienta <span class="ac-purple">a su altura</span></h2>
-    <p class="sec-body" style="max-width:340px;margin:0 auto 20px">Solicita una demo personalizada. Te contactamos en 24 hrs.</p>
+    <p class="sec-body" style="max-width:340px;margin:0 auto 20px">Conversemos sobre tu OTEC. Te mostramos cómo Pulsed puede ayudarte.</p>
     <form class="cta-form" onsubmit="return false;">
       <input type="email" class="cta-input" placeholder="tu@otec.cl" required aria-label="Email">
       <button type="submit" class="btn cta-btn">Solicitar Demo ↗</button>

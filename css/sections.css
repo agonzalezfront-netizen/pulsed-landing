@@ -7,10 +7,10 @@
 }
 .section.active { display: flex; }
 
-/* Split sections: center vertically, left-anchored horizontally */
+/* Split sections: push down slightly from pure center for better visual weight */
 .section:has(.sec-content--split) {
   align-items: center;
-  padding: 0 clamp(64px, 6vw, 160px);
+  padding: clamp(20px, 3vh, 50px) clamp(64px, 6vw, 160px) 0;
 }
 /* Cancel pos-tl auto-margin so width is respected */
 .sec-content--split.pos-tl { margin-right: 0; }
@@ -71,14 +71,14 @@
 /* Hero badge + dual CTA — section 01 */
 .hero-badge {
   display: inline-block;
-  font-size: 0.62rem;
+  font-size: clamp(0.65rem, 0.72vw, 0.9rem);
   font-weight: 600;
-  letter-spacing: 1px;
-  color: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.12);
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: 40px;
-  padding: 5px 14px;
-  margin-bottom: 14px;
+  padding: clamp(5px, 0.6vw, 9px) clamp(14px, 1.5vw, 24px);
+  margin-bottom: clamp(14px, 1.5vh, 24px);
 }
 .hero-ctas {
   display: flex;
@@ -502,12 +502,12 @@
 .hero-bento {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(8px, 1vw, 14px);
-  width: min(100%, clamp(280px, 32vw, 500px));
+  gap: clamp(10px, 1.2vw, 18px);
+  width: min(100%, clamp(340px, 42vw, 680px));
 }
 
 .hb-card {
-  padding: clamp(14px, 1.5vw, 24px);
+  padding: clamp(18px, 2vw, 34px);
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: clamp(10px, 1vw, 16px);
@@ -521,23 +521,23 @@
 }
 
 .hb-label {
-  font-size: clamp(0.58rem, 0.62vw, 0.75rem);
+  font-size: clamp(0.62rem, 0.68vw, 0.85rem);
   color: rgba(255,255,255,0.3);
   letter-spacing: 0.5px;
-  margin-bottom: 6px;
+  margin-bottom: clamp(6px, 0.7vh, 10px);
 }
 
 .hb-num {
-  font-size: clamp(1.8rem, 2.2vw, 3rem);
+  font-size: clamp(2.5rem, 3.5vw, 5.5rem);
   font-weight: 900;
   line-height: 1;
-  margin-bottom: 6px;
+  margin-bottom: clamp(6px, 0.7vh, 10px);
 }
 
 .hb-sub {
-  font-size: clamp(0.6rem, 0.65vw, 0.78rem);
+  font-size: clamp(0.65rem, 0.72vw, 0.88rem);
   color: rgba(255,255,255,0.28);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .hb-sync-dot {
@@ -546,6 +546,245 @@
   background: #34d399;
   flex-shrink: 0;
   animation: alertPulse 2s ease-in-out infinite;
+}
+
+/* ─── Hero section overrides — bigger, bolder ─────────────────────────────── */
+
+h1.sec-h {
+  font-size: clamp(2.8rem, 3.8vw, 6.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(16px, 2vh, 30px);
+}
+
+.section[data-idx="0"] .sec-body {
+  font-size: clamp(0.92rem, 1.05vw, 1.3rem);
+  line-height: 1.7;
+  max-width: clamp(340px, 34vw, 560px);
+}
+
+.section[data-idx="0"] .split-left {
+  flex: 0 0 clamp(420px, 48vw, 960px);
+}
+
+.section[data-idx="0"] .btn {
+  font-size: clamp(0.82rem, 0.92vw, 1.1rem);
+  padding: clamp(11px, 1.1vh, 16px) clamp(24px, 2.5vw, 40px);
+}
+
+.section[data-idx="0"] .hero-ctas {
+  gap: clamp(10px, 1vw, 16px);
+  margin-top: clamp(6px, 0.8vh, 12px);
+}
+
+/* Trust line below CTAs */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: clamp(18px, 2.2vh, 32px);
+  font-size: clamp(0.62rem, 0.68vw, 0.85rem);
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.3px;
+}
+
+.hero-trust strong {
+  color: rgba(255,255,255,0.4);
+}
+
+.hero-trust-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+  animation: alertPulse 2s ease-in-out infinite;
+}
+
+/* ─── Section 01 · Hero panel (control tower widget) ─────────────────────── */
+
+.hero-panel {
+  width: min(100%, clamp(320px, 38vw, 720px));
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: clamp(12px, 1.2vw, 20px);
+  padding: clamp(18px, 2vw, 34px);
+  backdrop-filter: blur(8px);
+}
+
+/* Header */
+.hp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(16px, 2vh, 28px);
+}
+
+.hp-title {
+  font-size: clamp(0.62rem, 0.68vw, 0.85rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.3);
+  font-weight: 700;
+}
+
+.hp-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(0.55rem, 0.6vw, 0.72rem);
+  color: rgba(52,211,153,0.7);
+  font-weight: 600;
+}
+
+.hp-live-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  animation: alertPulse 2s ease-in-out infinite;
+}
+
+/* Main metric area: donut + info side by side */
+.hp-main {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 32px);
+  margin-bottom: clamp(14px, 1.5vh, 24px);
+}
+
+/* Donut chart */
+.hp-donut {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(80px, 9vw, 180px);
+  height: clamp(80px, 9vw, 180px);
+}
+
+.hp-donut-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hp-donut-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.5rem, 2.5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.hp-donut-pct {
+  font-size: 0.5em;
+  color: rgba(255,255,255,0.4);
+  margin-left: 1px;
+}
+
+/* Info beside donut */
+.hp-main-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hp-main-label {
+  font-size: clamp(0.82rem, 0.95vw, 1.2rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: clamp(3px, 0.4vh, 6px);
+}
+
+.hp-main-trend {
+  font-size: clamp(0.6rem, 0.65vw, 0.8rem);
+  color: rgba(52,211,153,0.65);
+  margin-bottom: clamp(8px, 1vh, 14px);
+}
+
+/* Divider */
+.hp-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: clamp(12px, 1.4vh, 20px) 0;
+}
+
+/* Secondary metrics row */
+.hp-metrics {
+  display: flex;
+  align-items: center;
+}
+
+.hp-metric {
+  flex: 1;
+  text-align: center;
+}
+
+/* Primary metric — bigger */
+.hp-metric--hero .hp-metric-n {
+  font-size: clamp(1.8rem, 2.6vw, 3.8rem);
+}
+
+.hp-metric-n {
+  font-size: clamp(1.4rem, 2vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: clamp(3px, 0.4vh, 6px);
+}
+
+/* Smaller secondary metrics */
+.hp-metric-n--sm {
+  font-size: clamp(1.1rem, 1.5vw, 2.2rem);
+  color: rgba(255,255,255,0.65);
+}
+
+.hp-metric-l {
+  font-size: clamp(0.52rem, 0.58vw, 0.72rem);
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.3px;
+}
+
+.hp-metric-sep {
+  width: 1px;
+  height: clamp(28px, 3vw, 44px);
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+/* Status indicators */
+.hp-statuses {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 0.6vh, 8px);
+}
+
+.hp-status {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 0.8vw, 12px);
+  padding: clamp(6px, 0.6vw, 10px) clamp(10px, 1vw, 16px);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: clamp(6px, 0.6vw, 10px);
+}
+
+.hp-status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hp-status-dot--green { background: #34d399; animation: alertPulse 2s ease-in-out infinite; }
+
+.hp-status-label {
+  font-size: clamp(0.6rem, 0.65vw, 0.8rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+}
+
+.hp-status-info {
+  font-size: clamp(0.55rem, 0.6vw, 0.74rem);
+  color: rgba(255,255,255,0.22);
 }
 
 /* ─── Section 02 · Excel mock ─────────────────────────────────────────────── */
@@ -703,6 +942,406 @@
   color: rgba(52,211,153,0.25);
   flex-shrink: 0;
   user-select: none;
+}
+
+/* ─── Section 03 · Header row: title left + feat-compact right ──────────── */
+
+.sec-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(40px, 5vw, 100px);
+  margin-bottom: clamp(20px, 2.5vh, 40px);
+}
+
+/* Compact feature list — right side of header */
+.feat-compact {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 0.6vh, 9px);
+  flex-shrink: 0;
+}
+
+.fc-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 0.8vw, 14px);
+  padding: clamp(7px, 0.7vw, 11px) clamp(12px, 1.2vw, 20px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: clamp(6px, 0.6vw, 10px);
+  font-size: clamp(0.65rem, 0.72vw, 0.88rem);
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.fc-item:hover {
+  border-color: rgba(34,211,238,0.2);
+  color: rgba(255,255,255,0.7);
+}
+
+.fc-item svg {
+  flex-shrink: 0;
+  color: rgba(34,211,238,0.55);
+}
+
+/* ─── Section 03 · Full-width mockup showcase with floating badges ──────── */
+
+.feat-showcase {
+  position: relative;
+  margin-top: clamp(18px, 2.2vh, 34px);
+  /* Break out of sec-content max-width — span full viewport minus padding */
+  width: calc(100vw - clamp(128px, 12vw, 320px));
+}
+
+.feat-showcase .mockup-window {
+  width: 100% !important;
+}
+
+.fs-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: clamp(5px, 0.5vw, 8px);
+  padding: clamp(5px, 0.6vw, 9px) clamp(10px, 1.1vw, 18px);
+  background: rgba(6,14,30,0.88);
+  border: 1px solid rgba(34,211,238,0.25);
+  border-radius: 20px;
+  font-size: clamp(0.58rem, 0.65vw, 0.8rem);
+  font-weight: 600;
+  color: rgba(34,211,238,0.85);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  z-index: 2;
+  transition: border-color 0.25s, color 0.25s, transform 0.25s;
+}
+
+.fs-badge:hover {
+  border-color: rgba(34,211,238,0.5);
+  color: #22d3ee;
+  transform: scale(1.04);
+}
+
+.fs-badge svg {
+  flex-shrink: 0;
+  color: rgba(34,211,238,0.6);
+}
+
+/* Badge positions — anchored to mockup edges */
+.fs-badge--tl { top: clamp(8px, 1.2vh, 16px);  left: clamp(-8px, -0.5vw, -4px); }
+.fs-badge--tr { top: clamp(8px, 1.2vh, 16px);  right: clamp(-8px, -0.5vw, -4px); }
+.fs-badge--bl { bottom: clamp(8px, 1.2vh, 16px); left: clamp(-8px, -0.5vw, -4px); }
+.fs-badge--br { bottom: clamp(8px, 1.2vh, 16px); right: clamp(-8px, -0.5vw, -4px); }
+
+/* ─── Section 03 · Feature bento (L-shape inverted) ─────────────────────── */
+
+.feat-bento {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "a b"
+    "a c";
+  gap: clamp(8px, 1vw, 16px);
+  margin-top: clamp(18px, 2vh, 30px);
+  /* Match section 02's pain-grid proportions — wide but not edge-to-edge */
+  width: clamp(580px, 68vw, 1300px);
+}
+
+.feat-bento > :nth-child(1) { grid-area: a; }
+.feat-bento > :nth-child(2) { grid-area: b; }
+.feat-bento > :nth-child(3) { grid-area: c; }
+
+/* Tall card: mockup fills both rows */
+.feat-bento .mockup-window {
+  width: 100% !important;
+  height: 100%;
+}
+
+/* Divider inside combined cards */
+.fmc-divider {
+  margin: clamp(10px, 1.2vh, 18px) 0;
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ─── Mockup · Últimas Acciones rows ─────────────────────────────────────── */
+
+.mockup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 0.5vh, 8px);
+}
+
+.ma-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 0.8vw, 14px);
+  padding: clamp(5px, 0.5vw, 8px) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: clamp(0.58rem, 0.65vw, 0.82rem);
+}
+
+.ma-badge {
+  flex-shrink: 0;
+  font-size: clamp(0.48rem, 0.52vw, 0.65rem);
+  font-weight: 700;
+  padding: 2px clamp(6px, 0.6vw, 10px);
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.ma-badge--green  { background: rgba(52,211,153,0.12); color: rgba(52,211,153,0.85); }
+.ma-badge--yellow { background: rgba(251,191,36,0.12); color: rgba(251,191,36,0.85); }
+.ma-badge--red    { background: rgba(248,113,113,0.12); color: rgba(248,113,113,0.85); }
+
+.ma-name {
+  flex: 1;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ma-time {
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.2);
+  font-size: clamp(0.5rem, 0.55vw, 0.7rem);
+}
+
+/* ─── Section 03 · Feature micro-grid ────────────────────────────────────── */
+
+.feat-microgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(10px, 1.2vw, 18px);
+  width: 100%;
+}
+
+/* Second column shifted down — natural stagger */
+.feat-microgrid .fmc:nth-child(even) {
+  margin-top: clamp(28px, 4.5vh, 70px);
+}
+
+.fmc {
+  padding: clamp(16px, 1.6vw, 26px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: clamp(10px, 1vw, 16px);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.fmc-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: clamp(10px, 1.2vh, 18px);
+  font-size: clamp(0.56rem, 0.6vw, 0.72rem);
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.fmc-num {
+  font-size: clamp(2.2rem, 3.2vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 5px;
+}
+
+.fmc-sublabel {
+  font-size: clamp(0.6rem, 0.65vw, 0.8rem);
+  color: rgba(255,255,255,0.25);
+  line-height: 1.4;
+}
+
+.fmc-desc {
+  font-size: clamp(0.6rem, 0.65vw, 0.8rem);
+  color: rgba(255,255,255,0.28);
+  line-height: 1.65;
+  margin-top: clamp(6px, 0.7vh, 10px);
+  margin-bottom: clamp(8px, 0.9vh, 14px);
+}
+
+.fmc-dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.fmc-dot--green  { background: #34d399; animation: alertPulse 2s ease-in-out infinite; }
+.fmc-dot--red    { background: #f87171; animation: alertPulse 1.6s ease-in-out infinite; }
+.fmc-dot--purple { background: #a78bfa; }
+.fmc-dot--cyan   { background: #22d3ee; }
+
+.fmc-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: clamp(10px, 1.2vh, 16px);
+  font-size: clamp(0.56rem, 0.6vw, 0.72rem);
+  color: rgba(255,255,255,0.2);
+}
+
+/* Alert mini-list inside the alerts card */
+.fmc-alert-list {
+  margin-top: clamp(10px, 1.2vh, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fmc-alert-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: clamp(0.56rem, 0.6vw, 0.72rem);
+  color: rgba(248,113,113,0.55);
+  padding: 4px 7px;
+  background: rgba(248,113,113,0.05);
+  border-radius: 5px;
+  border: 1px solid rgba(248,113,113,0.08);
+}
+
+/* Role hierarchy inside the roles card */
+.fmc-roles {
+  margin-top: clamp(10px, 1.2vh, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(5px, 0.6vh, 8px);
+}
+
+.fmc-role-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fmc-role-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: clamp(0.52rem, 0.55vw, 0.66rem);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fmc-role-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  min-width: 8px;
+}
+
+/* ─── Section 04 · Steps vertical timeline ────────────────────────────────── */
+
+.section:has(.sec-content--steps-full) {
+  align-items: center;
+  padding: clamp(60px, 6vh, 100px) clamp(64px, 6vw, 160px);
+}
+
+/* Full-width two-column: timeline left · text right */
+.sec-content--steps-full {
+  max-width: none !important;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(48px, 7vw, 140px);
+}
+
+/* ── Timeline column ── */
+.steps-timeline {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vertical connector line between dots */
+.stl-line {
+  position: absolute;
+  left: clamp(17px, 2vw, 30px);
+  top: clamp(42px, 4vw, 68px);
+  bottom: clamp(42px, 4vw, 68px);
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(52,211,153,0.3) 15%,
+    rgba(52,211,153,0.3) 85%,
+    transparent
+  );
+}
+
+.stl-step {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 32px);
+  padding: clamp(14px, 2vh, 26px) 0;
+}
+
+/* Circle node on the line */
+.stl-dot {
+  flex-shrink: 0;
+  width: clamp(34px, 3.5vw, 60px);
+  height: clamp(34px, 3.5vw, 60px);
+  border-radius: 50%;
+  background: rgba(52,211,153,0.07);
+  border: 1px solid rgba(52,211,153,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: background 0.25s, border-color 0.25s;
+}
+.stl-step:hover .stl-dot {
+  background: rgba(52,211,153,0.14);
+  border-color: rgba(52,211,153,0.5);
+}
+
+/* Card attached to each node */
+.stl-card {
+  flex: 1;
+  padding: clamp(16px, 1.8vw, 28px) clamp(18px, 2vw, 32px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: clamp(10px, 1vw, 16px);
+  transition: border-color 0.25s, background 0.25s;
+}
+.stl-step:hover .stl-card {
+  background: rgba(52,211,153,0.04);
+  border-color: rgba(52,211,153,0.18);
+}
+
+.stl-num {
+  font-size: clamp(2rem, 3.2vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: clamp(8px, 1vh, 14px);
+}
+
+.stl-title {
+  font-size: clamp(1rem, 1.2vw, 1.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: clamp(5px, 0.6vh, 10px);
+}
+
+.stl-desc {
+  font-size: clamp(0.72rem, 0.78vw, 0.96rem);
+  color: rgba(255,255,255,0.35);
+  line-height: 1.65;
+}
+
+/* ── Text column (right side) ── */
+.steps-text {
+  flex: 0 0 clamp(280px, 30vw, 520px);
 }
 
 /* ─── Section 06 · Pilot card ─────────────────────────────────────────────── */
