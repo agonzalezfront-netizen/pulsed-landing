@@ -1452,11 +1452,19 @@ h1.sec-h {
     padding: 60px 20px;
     align-items: flex-start;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     height: 100vh;
   }
 
   .sec-content {
     max-width: 100%;
+  }
+
+  /* ── Cards: opaque on mobile so particles don't interfere ────────────── */
+  .fmc, .pain-card, .pilot-card, .hb-card, .stl-card,
+  .testimonial-wide, .hero-panel, .mockup-window {
+    background: rgba(10, 18, 35, 0.92) !important;
+    backdrop-filter: blur(16px);
   }
 
   .sec-content--wide {

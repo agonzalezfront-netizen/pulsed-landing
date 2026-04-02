@@ -144,12 +144,30 @@ if (navHome) navHome.addEventListener('click', e => { e.preventDefault(); goTo(0
 const scrollHint = document.getElementById('scroll-hint');
 function hideScrollHint() { if (scrollHint) scrollHint.style.opacity = '0'; }
 
-// Touch
-let tY = 0;
-window.addEventListener('touchstart', e => { tY = e.touches[0].clientY; }, { passive: true });
+// Touch — smart: respects internal scroll, allows pull-to-refresh on long press
+let tY = 0, tTime = 0;
+window.addEventListener('touchstart', e => {
+  tY = e.touches[0].clientY;
+  tTime = Date.now();
+}, { passive: true });
+
 window.addEventListener('touchend', e => {
   if (busy) return;
+
+  // Long press (>600ms) → let browser handle (pull-to-refresh, etc)
+  if (Date.now() - tTime > 600) return;
+
   const dy = tY - e.changedTouches[0].clientY;
   if (Math.abs(dy) < 40) return;
+
+  // If section has scrollable overflow, only change when at edges
+  const sec = sections[curIdx];
+  if (sec.scrollHeight > sec.clientHeight + 5) {
+    const atTop = sec.scrollTop <= 5;
+    const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 5;
+    if (dy > 0 && !atBottom) return; // swiping up but content below
+    if (dy < 0 && !atTop) return;   // swiping down but content above
+  }
+
   dy > 0 ? goTo(curIdx + 1) : goTo(curIdx - 1);
 }, { passive: true });
