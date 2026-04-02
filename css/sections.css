@@ -164,6 +164,8 @@
   border-radius: clamp(8px, 0.8vw, 14px);
   transition: border-color 0.2s;
   text-align: left;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .pain-card:hover { border-color: rgba(248,113,113,0.25); }
 .pain-card--tall { display: flex; flex-direction: column; }
@@ -511,6 +513,8 @@
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: clamp(10px, 1vw, 16px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .hb-card--sync {
@@ -859,6 +863,8 @@ h1.sec-h {
   border-radius: 12px;
   max-width: clamp(480px, 48vw, 860px);
   text-align: left;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .tw-avatar {
@@ -1131,6 +1137,8 @@ h1.sec-h {
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: clamp(10px, 1vw, 16px);
   transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .fmc-head {
@@ -1312,6 +1320,8 @@ h1.sec-h {
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: clamp(10px, 1vw, 16px);
   transition: border-color 0.25s, background 0.25s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .stl-step:hover .stl-card {
   background: rgba(52,211,153,0.04);
@@ -1354,6 +1364,8 @@ h1.sec-h {
   border: 1px solid rgba(251,191,36,0.18);
   border-radius: clamp(16px, 1.6vw, 24px);
   text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .pilot-badge {
