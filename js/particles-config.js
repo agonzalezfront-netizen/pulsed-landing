@@ -1,11 +1,11 @@
-import { zDiagRight, zWaveBottom, zColRight, zSphereLeft, zPlaneBottom, zGalaxy, zSphereCenter } from '../lib/zones.js';
+import { zDiagRight, zWaveBottom, zWaveDeep, zColRight, zSphereLeft, zPlaneBottom, zGalaxy, zSphereCenter } from '../lib/zones.js';
 
 const mob = window.innerWidth < 768;
 
 // On mobile, push particle zones lower/to edges so cards stay readable
 export const PULSED_SECTIONS = [
   { zone: zDiagRight,                color: { base: '#a78bfa', bright: '#c4b5fd' }, bg: 'radial-gradient(ellipse 90% 70% at 65% 25%, #0d1f38 0%, #050c1a 65%)' },
-  { zone: mob ? zPlaneBottom : zWaveBottom, color: { base: '#f87171', bright: '#fca5a5' }, bg: 'radial-gradient(ellipse 80% 60% at 30% 70%, #1c0a0a 0%, #050c1a 65%)' },
+  { zone: mob ? zWaveDeep : zWaveBottom, color: { base: '#f87171', bright: '#fca5a5' }, bg: 'radial-gradient(ellipse 80% 60% at 30% 70%, #1c0a0a 0%, #050c1a 65%)' },
   { zone: zColRight,                 color: { base: '#22d3ee', bright: '#67e8f9' }, bg: 'radial-gradient(ellipse 60% 90% at 72% 50%, #071a24 0%, #050c1a 65%)' },
   { zone: zSphereLeft,               color: { base: '#34d399', bright: '#6ee7b7' }, bg: 'radial-gradient(ellipse 70% 80% at 22% 50%, #071a10 0%, #050c1a 65%)' },
   { zone: zPlaneBottom,              color: { base: '#818cf8', bright: '#a5b4fc' }, bg: 'radial-gradient(ellipse 100% 60% at 50% 85%, #0c0c22 0%, #050c1a 65%)' },
