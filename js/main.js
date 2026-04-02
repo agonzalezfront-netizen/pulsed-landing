@@ -59,12 +59,13 @@ field.morphTo(PULSED_SECTIONS[0]);
 
   const leftEls = [
     left.querySelector('.hero-badge'),
-    left.querySelector('.sec-tag'),
     left.querySelector('h1'),
     left.querySelector('.sec-body'),
-    left.querySelector('.hero-ctas'),
+    left.querySelector('.btn--primary'),
     left.querySelector('.hero-trust'),
   ].filter(Boolean);
+
+  const bottomCta = hero.parentElement.querySelector('.hero-cta-bottom');
 
   // Show container, then animate children FROM hidden states
   hero.classList.add('is-visible');
@@ -97,6 +98,14 @@ field.morphTo(PULSED_SECTIONS[0]);
     tl.add(() => {
       panel.querySelectorAll('.hp-count').forEach(countUp);
     }, 1.0);
+  }
+
+  // Bottom CTA (mobile) — slides up after panel
+  if (bottomCta) {
+    tl.from(bottomCta, {
+      opacity: 0, y: 20, duration: 0.5,
+      ease: 'power2.out'
+    }, 1.2);
   }
 })();
 
