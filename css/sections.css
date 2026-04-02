@@ -1447,13 +1447,18 @@ h1.sec-h {
 
 @media (max-width: 768px) {
 
-  /* ── Global section overrides ───────────────────────────────────────────── */
+  /* ── Global: natural scroll — all sections stacked, body scrolls ────────── */
   .section {
-    padding: 60px 20px;
+    display: flex !important;       /* all visible, stacked */
+    height: auto;
+    min-height: 100vh;
+    padding: 60px 20px 40px;
     align-items: flex-start;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    height: 100vh;
+  }
+
+  .section .sec-content {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .sec-content {
