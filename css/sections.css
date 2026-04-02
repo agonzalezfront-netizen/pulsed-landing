@@ -1447,29 +1447,14 @@ h1.sec-h {
 
 @media (max-width: 768px) {
 
-  /* ── Global: scroll-snap — native rubber band, chrome hides, slide transitions */
-  html, body {
-    overflow: auto !important;
-    height: auto !important;
-  }
-
-  html {
-    scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
+  /* ── Global: one section at a time + custom drag transitions ────────────── */
   .section {
-    display: flex !important;
-    min-height: 100vh;
-    height: auto;
-    scroll-snap-align: start;
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 60px 20px 40px;
     align-items: flex-start;
-  }
-
-  .section .sec-content {
-    opacity: 1 !important;
-    transform: none !important;
+    will-change: transform;
   }
 
   .sec-content {

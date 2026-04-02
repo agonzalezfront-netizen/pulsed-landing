@@ -149,62 +149,138 @@ const scrollHint = document.getElementById('scroll-hint');
 function hideScrollHint() { if (scrollHint) scrollHint.style.opacity = '0'; }
 
 if (isMobile) {
-  // ── Mobile: scroll-snap handles everything — we just track current section
-  // Make all sec-content visible (CSS handles display)
-  sections.forEach(s => {
-    const sc = s.querySelector('.sec-content');
-    if (sc) sc.classList.add('is-visible');
-  });
+  // ── Mobile: Custom drag system ────────────────────────────────────────
+  // State 1: Section fits → drag moves section, rubber band / transition
+  // State 2: Section overflows → free scroll, rubber band at edges
+  // State 3: Threshold → <90px bounces back, >90px transitions
 
-  // IntersectionObserver: morph particles + update dots as sections scroll by
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const idx = parseInt(entry.target.dataset.idx);
-        if (idx !== curIdx) {
-          field.morphTo(PULSED_SECTIONS[idx]);
-          curIdx = idx;
-          updateDots(idx);
-          hideScrollHint();
-          if (idx === 4) {
-            setTimeout(() => sections[4].querySelectorAll('.stat-n[data-target]').forEach(countUp), 200);
-          }
-        }
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
+  const THRESHOLD = 90;
+  const RESIST = 0.4;        // how much the section follows your finger (0-1)
+  const SLIDE_DUR = 400;     // ms for section slide in/out
 
-  // Dots: smooth scroll to section
-  dotsEl.querySelectorAll('span').forEach((dot, i) => {
-    dot.addEventListener('click', () => sections[i].scrollIntoView({ behavior: 'smooth' }));
-  });
+  let tStartY = 0, engaged = false, dragPx = 0;
 
-  // Visual drag feedback — subtle scale + slight translateY on touch
-  let dragStartY = 0;
+  // Try to hide browser chrome on first touch
+  document.addEventListener('touchstart', () => {
+    document.body.style.height = 'calc(100vh + 1px)';
+    document.body.style.overflow = 'auto';
+    window.scrollTo(0, 1);
+    setTimeout(() => {
+      document.body.style.height = '';
+      document.body.style.overflow = '';
+    }, 100);
+  }, { once: true, passive: true });
+
   window.addEventListener('touchstart', e => {
-    dragStartY = e.touches[0].clientY;
-    sections.forEach(s => { s.style.transition = 'none'; });
+    tStartY = e.touches[0].clientY;
+    engaged = false;
+    dragPx = 0;
+    // Remove any leftover transition
+    sections[curIdx].style.transition = 'none';
   }, { passive: true });
 
   window.addEventListener('touchmove', e => {
-    const dy = e.touches[0].clientY - dragStartY;
-    const absDy = Math.min(Math.abs(dy), 120);
-    const scaleFactor = 1 - absDy * 0.0008;  // max scale(0.904) at 120px drag
-    const translateY = dy * 0.08;              // subtle follow, 8% of real drag
-    sections.forEach(s => {
-      s.style.transform = `scale(${scaleFactor}) translateY(${translateY}px)`;
-    });
-  }, { passive: true });
+    const y = e.touches[0].clientY;
+    const rawDy = y - tStartY;
+    const sec = sections[curIdx];
+    const hasOverflow = sec.scrollHeight > sec.clientHeight + 5;
+
+    // ── State 2: section has overflow — check if at edges ──
+    if (hasOverflow && !engaged) {
+      const atTop = sec.scrollTop <= 2;
+      const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 2;
+
+      if (rawDy > 0 && atTop) {
+        engaged = true;
+        tStartY = y;  // reset origin to edge moment
+      } else if (rawDy < 0 && atBottom) {
+        engaged = true;
+        tStartY = y;
+      } else {
+        return; // let native scroll happen freely
+      }
+    }
+
+    // ── State 1: no overflow or at edge — engage drag ──
+    if (!hasOverflow && !engaged) engaged = true;
+
+    if (engaged) {
+      e.preventDefault(); // stop native scroll while dragging section
+      dragPx = (y - tStartY) * RESIST;
+      sec.style.transform = `translateY(${dragPx}px)`;
+    }
+  }, { passive: false }); // passive:false needed for conditional preventDefault
 
   window.addEventListener('touchend', () => {
-    sections.forEach(s => {
-      s.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1)';
-      s.style.transform = '';
-    });
-    setTimeout(() => {
-      sections.forEach(s => { s.style.transition = ''; });
-    }, 400);
+    if (!engaged) return;
+    const sec = sections[curIdx];
+    const absDrag = Math.abs(dragPx);
+
+    if (absDrag > THRESHOLD * RESIST) {
+      // ── State 3: exceeded threshold → slide out + transition ──
+      const direction = dragPx < 0 ? -1 : 1;  // -1 = going to next, 1 = going to prev
+      const targetIdx = curIdx + (direction < 0 ? 1 : -1);
+
+      if (targetIdx >= 0 && targetIdx < sections.length) {
+        // Slide current section OUT
+        sec.style.transition = `transform ${SLIDE_DUR}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+        sec.style.transform = `translateY(${direction * window.innerHeight}px)`;
+
+        setTimeout(() => {
+          sec.style.transition = 'none';
+          sec.style.transform = '';
+          sec.classList.remove('active');
+
+          // Slide new section IN from opposite side
+          const next = sections[targetIdx];
+          next.style.transition = 'none';
+          next.style.transform = `translateY(${-direction * window.innerHeight}px)`;
+          next.classList.add('active');
+
+          // Animate content in
+          const sc = next.querySelector('.sec-content');
+          if (sc) sc.classList.add('is-visible');
+
+          // Force reflow then animate
+          next.offsetHeight;
+          next.style.transition = `transform ${SLIDE_DUR}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+          next.style.transform = '';
+
+          // Update state
+          field.morphTo(PULSED_SECTIONS[targetIdx]);
+          curIdx = targetIdx;
+          updateDots(targetIdx);
+          hideScrollHint();
+
+          if (targetIdx === 4) {
+            setTimeout(() => sections[4].querySelectorAll('.stat-n[data-target]').forEach(countUp), 200);
+          }
+
+          // Reset scroll position for new section
+          next.scrollTop = direction < 0 ? 0 : next.scrollHeight;
+
+          setTimeout(() => {
+            next.style.transition = '';
+            busy = false;
+          }, SLIDE_DUR);
+        }, SLIDE_DUR);
+
+        busy = true;
+      } else {
+        // Edge of sections (first/last) — just bounce back
+        sec.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1)';
+        sec.style.transform = '';
+        setTimeout(() => { sec.style.transition = ''; }, 400);
+      }
+    } else {
+      // ── Below threshold → rubber band back ──
+      sec.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1)';
+      sec.style.transform = '';
+      setTimeout(() => { sec.style.transition = ''; }, 400);
+    }
+
+    engaged = false;
+    dragPx = 0;
   }, { passive: true });
 
 } else {
