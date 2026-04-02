@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/sections.css?v=69">
+  <link rel="stylesheet" href="css/sections.css?v=71">
 </head>
 <body>
 <div id="bg"></div>
@@ -238,22 +238,26 @@
         </div>
       </div>
 
-      <!-- Top-right: Sync + CRM metrics -->
-      <div class="fmc">
-        <div class="fmc-head">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-          Sync SENCE
+      <!-- Top-right: Sync + CRM as dual columns -->
+      <div class="fmc fmc--dual">
+        <div class="fmc-col">
+          <div class="fmc-head">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            Sync SENCE
+          </div>
+          <div class="fmc-num ac-green">12</div>
+          <div class="fmc-sublabel">cursos sincronizados</div>
+          <div class="fmc-status"><span class="fmc-dot fmc-dot--green"></span>En línea · hace 3 min</div>
         </div>
-        <div class="fmc-num ac-green">12</div>
-        <div class="fmc-sublabel">cursos sincronizados</div>
-        <div class="fmc-status"><span class="fmc-dot fmc-dot--green"></span>En línea · hace 3 min</div>
-        <hr class="fmc-divider">
-        <div class="fmc-head">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          CRM Pipedrive
+        <div class="fmc-col">
+          <div class="fmc-head">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            CRM Pipedrive
+          </div>
+          <div class="fmc-num ac-lav">247</div>
+          <div class="fmc-sublabel">alumnos en seguimiento</div>
+          <div class="fmc-status"><span class="fmc-dot fmc-dot--purple"></span>Pipedrive conectado</div>
         </div>
-        <div class="fmc-num ac-lav">247</div>
-        <div class="fmc-sublabel">alumnos en seguimiento</div>
       </div>
 
       <!-- Bottom-right: Alerts + Roles -->
@@ -424,6 +428,6 @@
 </section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script type="module" src="js/main.js?v=69"></script>
+<script type="module" src="js/main.js?v=71"></script>
 </body>
 </html>

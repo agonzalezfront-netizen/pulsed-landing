@@ -1073,6 +1073,26 @@ h1.sec-h {
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
+/* Dual-column card — two metrics side by side */
+.fmc--dual {
+  display: flex;
+  gap: 0;
+}
+
+.fmc-col {
+  flex: 1;
+  padding: 0 clamp(8px, 1vw, 16px);
+}
+
+.fmc-col:first-child {
+  border-right: 1px solid rgba(255,255,255,0.06);
+  padding-left: 0;
+}
+
+.fmc-col:last-child {
+  padding-right: 0;
+}
+
 /* ─── Mockup · Últimas Acciones rows ─────────────────────────────────────── */
 
 .mockup-actions {
