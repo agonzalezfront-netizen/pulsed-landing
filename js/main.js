@@ -180,6 +180,33 @@ if (isMobile) {
     dot.addEventListener('click', () => sections[i].scrollIntoView({ behavior: 'smooth' }));
   });
 
+  // Visual drag feedback — subtle scale + slight translateY on touch
+  let dragStartY = 0;
+  window.addEventListener('touchstart', e => {
+    dragStartY = e.touches[0].clientY;
+    sections.forEach(s => { s.style.transition = 'none'; });
+  }, { passive: true });
+
+  window.addEventListener('touchmove', e => {
+    const dy = e.touches[0].clientY - dragStartY;
+    const absDy = Math.min(Math.abs(dy), 120);
+    const scaleFactor = 1 - absDy * 0.0008;  // max scale(0.904) at 120px drag
+    const translateY = dy * 0.08;              // subtle follow, 8% of real drag
+    sections.forEach(s => {
+      s.style.transform = `scale(${scaleFactor}) translateY(${translateY}px)`;
+    });
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    sections.forEach(s => {
+      s.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1)';
+      s.style.transform = '';
+    });
+    setTimeout(() => {
+      sections.forEach(s => { s.style.transition = ''; });
+    }, 400);
+  }, { passive: true });
+
 } else {
   // ── Desktop: touch swipe ──────────────────────────────────────────────
   let tY = 0;

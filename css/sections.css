@@ -1454,7 +1454,7 @@ h1.sec-h {
   }
 
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
