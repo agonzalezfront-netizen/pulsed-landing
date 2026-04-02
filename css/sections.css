@@ -1447,20 +1447,25 @@ h1.sec-h {
 
 @media (max-width: 768px) {
 
-  /* ── Global: one section at a time + rubber band drag ──────────────────── */
-  body::after {
-    content: '';
-    display: block;
-    height: 1px;         /* makes body scrollable → browser chrome hides */
+  /* ── Global: scroll-snap — native rubber band, chrome hides, slide transitions */
+  html {
+    scroll-snap-type: y proximity;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .section {
-    height: 100vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    display: flex !important;
+    min-height: 100vh;
+    height: auto;
+    scroll-snap-align: start;
     padding: 60px 20px 40px;
     align-items: flex-start;
-    will-change: transform;
+  }
+
+  .section .sec-content {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .sec-content {
