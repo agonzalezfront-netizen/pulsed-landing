@@ -1460,11 +1460,27 @@ h1.sec-h {
     max-width: 100%;
   }
 
-  /* ── Cards: opaque on mobile so particles don't interfere ────────────── */
-  .fmc, .pain-card, .pilot-card, .hb-card, .stl-card,
-  .testimonial-wide, .hero-panel, .mockup-window {
-    background: rgba(10, 18, 35, 0.92) !important;
-    backdrop-filter: blur(16px);
+  /* ── Simplify visuals on mobile — hide heavy graphic elements ─────────── */
+
+  /* Hide dashboard mockup in section 03 — keep only data cards */
+  .feat-bento .mockup-window { display: none; }
+  .feat-bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "b c";
+  }
+
+  /* Hide Excel mock + WhatsApp chat in section 02 pain cards */
+  .pain-excel-mock { display: none; }
+  .pain-chat-mock { display: none; }
+
+  /* Hide "Últimas Acciones" in any remaining mockup */
+  .mockup-actions { display: none; }
+  .mockup-stats-row { display: none; }
+
+  /* Hero panel: keep glass, lighter backdrop */
+  .hero-panel {
+    backdrop-filter: blur(12px);
+    background: rgba(8, 16, 32, 0.75) !important;
   }
 
   .sec-content--wide {
