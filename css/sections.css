@@ -1447,18 +1447,20 @@ h1.sec-h {
 
 @media (max-width: 768px) {
 
-  /* ── Global: natural scroll — all sections stacked, body scrolls ────────── */
-  .section {
-    display: flex !important;       /* all visible, stacked */
-    height: auto;
-    min-height: 100vh;
-    padding: 60px 20px 40px;
-    align-items: flex-start;
+  /* ── Global: one section at a time + rubber band drag ──────────────────── */
+  body::after {
+    content: '';
+    display: block;
+    height: 1px;         /* makes body scrollable → browser chrome hides */
   }
 
-  .section .sec-content {
-    opacity: 1 !important;
-    transform: none !important;
+  .section {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 60px 20px 40px;
+    align-items: flex-start;
+    will-change: transform;
   }
 
   .sec-content {

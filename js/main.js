@@ -148,49 +148,73 @@ if (navHome) navHome.addEventListener('click', e => { e.preventDefault(); goTo(0
 const scrollHint = document.getElementById('scroll-hint');
 function hideScrollHint() { if (scrollHint) scrollHint.style.opacity = '0'; }
 
-// ── Mobile: natural scroll + IntersectionObserver for particle morphing ────
 if (isMobile) {
-  // All sections already visible via CSS — just need particle morphing on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const idx = parseInt(entry.target.dataset.idx);
-        if (idx !== curIdx) {
-          field.morphTo(PULSED_SECTIONS[idx]);
-          curIdx = idx;
-          updateDots(idx);
-          hideScrollHint();
-          // Trigger counter on section 05
-          if (idx === 4) {
-            setTimeout(() => {
-              sections[4].querySelectorAll('.stat-n[data-target]').forEach(countUp);
-            }, 200);
-          }
-        }
-      }
-    });
-  }, { threshold: 0.4 });
+  // ── Mobile: rubber band + threshold section change ────────────────────
+  // Hide browser chrome on first interaction
+  document.addEventListener('touchstart', () => {
+    if (window.scrollY < 1) window.scrollTo(0, 1);
+  }, { once: true, passive: true });
 
-  sections.forEach(s => observer.observe(s));
+  const THRESHOLD = 80;   // px of actual drag to trigger section change
+  const RESIST = 0.35;    // rubber band resistance (0-1)
+  let tStart = 0, dragDy = 0, engaged = false;
 
-  // Dots: scroll to section on click
-  dotsEl.querySelectorAll('span').forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      sections[i].scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-} else {
-  // ── Desktop: touch swipe navigation ─────────────────────────────────────
-  let tY = 0, tTime = 0;
   window.addEventListener('touchstart', e => {
-    tY = e.touches[0].clientY;
-    tTime = Date.now();
+    tStart = e.touches[0].clientY;
+    dragDy = 0;
+    engaged = false;
   }, { passive: true });
 
+  window.addEventListener('touchmove', e => {
+    const y = e.touches[0].clientY;
+    const rawDy = y - tStart;
+    const sec = sections[curIdx];
+    const hasOverflow = sec.scrollHeight > sec.clientHeight + 5;
+
+    if (hasOverflow && !engaged) {
+      const atTop = sec.scrollTop <= 2;
+      const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 2;
+      // Only engage rubber band when at content edges
+      if (rawDy > 0 && atTop) { engaged = true; tStart = y; }
+      else if (rawDy < 0 && atBottom) { engaged = true; tStart = y; }
+      else return; // let native scroll happen
+    } else if (!hasOverflow && !engaged) {
+      engaged = true;
+    }
+
+    if (engaged) {
+      e.preventDefault(); // prevent native overscroll bounce
+      dragDy = (y - tStart) * RESIST;
+      sec.style.transform = `translateY(${dragDy}px)`;
+      sec.style.transition = 'none';
+    }
+  }, { passive: false }); // passive:false needed for conditional preventDefault
+
+  window.addEventListener('touchend', () => {
+    const sec = sections[curIdx];
+
+    if (engaged && Math.abs(dragDy) > THRESHOLD * RESIST) {
+      // Drag exceeded threshold → change section
+      sec.style.transform = '';
+      sec.style.transition = '';
+      dragDy < 0 ? goTo(curIdx + 1) : goTo(curIdx - 1);
+    } else if (engaged) {
+      // Below threshold → rubber band spring back
+      sec.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1)';
+      sec.style.transform = '';
+      setTimeout(() => { sec.style.transition = ''; }, 400);
+    }
+
+    dragDy = 0;
+    engaged = false;
+  }, { passive: true });
+
+} else {
+  // ── Desktop: touch swipe ──────────────────────────────────────────────
+  let tY = 0;
+  window.addEventListener('touchstart', e => { tY = e.touches[0].clientY; }, { passive: true });
   window.addEventListener('touchend', e => {
     if (busy) return;
-    if (Date.now() - tTime > 600) return;
     const dy = tY - e.changedTouches[0].clientY;
     if (Math.abs(dy) < 40) return;
     dy > 0 ? goTo(curIdx + 1) : goTo(curIdx - 1);
