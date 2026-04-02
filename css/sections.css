@@ -1449,10 +1449,11 @@ h1.sec-h {
 
   /* ── Global: one section at a time + custom drag transitions ────────────── */
   .section {
-    height: 100vh;
+    height: 100vh;                   /* fallback */
+    height: 100dvh;                  /* dynamic: accounts for browser chrome */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 60px 20px 40px;
+    padding: 50px 20px 30px;
     align-items: flex-start;
     will-change: transform;
   }

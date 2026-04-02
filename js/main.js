@@ -160,20 +160,11 @@ if (isMobile) {
 
   let tStartY = 0, engaged = false, dragPx = 0;
 
-  // Make body minimally scrollable for chrome hide trick
-  document.body.style.minHeight = 'calc(100vh + 2px)';
-  document.body.style.overflow = 'auto';
-
   window.addEventListener('touchstart', e => {
     tStartY = e.touches[0].clientY;
     engaged = false;
     dragPx = 0;
     sections[curIdx].style.transition = 'none';
-
-    // Micro-scroll to trigger browser chrome hide/show
-    if (window.scrollY < 1) {
-      window.scrollTo({ top: 1, behavior: 'instant' });
-    }
   }, { passive: true });
 
   window.addEventListener('touchmove', e => {
@@ -218,9 +209,10 @@ if (isMobile) {
       const targetIdx = curIdx + (direction < 0 ? 1 : -1);
 
       if (targetIdx >= 0 && targetIdx < sections.length) {
-        // Slide current section OUT
+        // Slide current section OUT (use actual visible height)
+        const vh = window.innerHeight;
         sec.style.transition = `transform ${SLIDE_DUR}ms cubic-bezier(0.4, 0, 0.2, 1)`;
-        sec.style.transform = `translateY(${direction * window.innerHeight}px)`;
+        sec.style.transform = `translateY(${direction * vh}px)`;
 
         setTimeout(() => {
           sec.style.transition = 'none';
@@ -230,7 +222,7 @@ if (isMobile) {
           // Slide new section IN from opposite side
           const next = sections[targetIdx];
           next.style.transition = 'none';
-          next.style.transform = `translateY(${-direction * window.innerHeight}px)`;
+          next.style.transform = `translateY(${-direction * vh}px)`;
           next.classList.add('active');
 
           // Animate content in
