@@ -160,23 +160,20 @@ if (isMobile) {
 
   let tStartY = 0, engaged = false, dragPx = 0;
 
-  // Try to hide browser chrome on first touch
-  document.addEventListener('touchstart', () => {
-    document.body.style.height = 'calc(100vh + 1px)';
-    document.body.style.overflow = 'auto';
-    window.scrollTo(0, 1);
-    setTimeout(() => {
-      document.body.style.height = '';
-      document.body.style.overflow = '';
-    }, 100);
-  }, { once: true, passive: true });
+  // Make body minimally scrollable for chrome hide trick
+  document.body.style.minHeight = 'calc(100vh + 2px)';
+  document.body.style.overflow = 'auto';
 
   window.addEventListener('touchstart', e => {
     tStartY = e.touches[0].clientY;
     engaged = false;
     dragPx = 0;
-    // Remove any leftover transition
     sections[curIdx].style.transition = 'none';
+
+    // Micro-scroll to trigger browser chrome hide/show
+    if (window.scrollY < 1) {
+      window.scrollTo({ top: 1, behavior: 'instant' });
+    }
   }, { passive: true });
 
   window.addEventListener('touchmove', e => {
