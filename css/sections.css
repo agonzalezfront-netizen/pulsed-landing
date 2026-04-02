@@ -1601,13 +1601,10 @@ h1.sec-h {
     padding: 4px 12px;
   }
 
-  .hero-ctas {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .hero-ctas .btn {
-    text-align: center;
+  .section[data-idx="0"] .btn--primary {
+    display: block;
     width: 100%;
+    text-align: center;
   }
 
   .hero-trust {
