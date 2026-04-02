@@ -68,6 +68,9 @@
 }
 .btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.4); }
 
+/* Bottom CTA: hidden on desktop, shown on mobile below panel */
+.hero-cta-bottom { display: none; }
+
 /* Hero badge + dual CTA — section 01 */
 .hero-badge {
   display: inline-block;
@@ -1601,10 +1604,15 @@ h1.sec-h {
     padding: 4px 12px;
   }
 
-  .section[data-idx="0"] .btn--primary {
-    display: block;
+  .section[data-idx="0"] .split-left .btn--primary {
+    display: none;           /* hide the one in split-left on mobile */
+  }
+
+  .hero-cta-bottom {
+    display: block !important;
     width: 100%;
     text-align: center;
+    margin-top: 16px;
   }
 
   .hero-trust {
