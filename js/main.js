@@ -182,31 +182,30 @@ if (isMobile) {
     const sec = sections[curIdx];
     const hasOverflow = sec.scrollHeight > sec.clientHeight + 5;
 
-    // ── State 2: section has overflow — check if at edges ──
+    // ── State 2: section has overflow — free scroll, engage at edges ──
     if (hasOverflow && !engaged) {
       const atTop = sec.scrollTop <= 2;
       const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 2;
 
-      if (rawDy > 0 && atTop) {
-        engaged = true;
-        tStartY = y;  // reset origin to edge moment
-      } else if (rawDy < 0 && atBottom) {
-        engaged = true;
-        tStartY = y;
-      } else {
-        return; // let native scroll happen freely
-      }
+      if (rawDy > 0 && atTop) { engaged = true; tStartY = y; }
+      else if (rawDy < 0 && atBottom) { engaged = true; tStartY = y; }
+      else return; // native scroll → chrome hides naturally
     }
 
-    // ── State 1: no overflow or at edge — engage drag ──
-    if (!hasOverflow && !engaged) engaged = true;
+    // ── State 1: no overflow — let first 6px be native scroll (hides chrome) ──
+    if (!hasOverflow && !engaged) {
+      if (Math.abs(rawDy) < 6) return; // let browser handle → scrolls body → chrome hides
+      engaged = true;
+      tStartY = y; // reset origin after the native scroll pixels
+    }
 
+    // ── Engaged: custom drag with resistance ──
     if (engaged) {
-      e.preventDefault(); // stop native scroll while dragging section
+      e.preventDefault();
       dragPx = (y - tStartY) * RESIST;
       sec.style.transform = `translateY(${dragPx}px)`;
     }
-  }, { passive: false }); // passive:false needed for conditional preventDefault
+  }, { passive: false });
 
   window.addEventListener('touchend', () => {
     if (!engaged) return;
