@@ -153,6 +153,13 @@ sections[2].querySelectorAll('.feat-list-item[data-feat]').forEach(item => {
 const navHome = document.getElementById('nav-home');
 if (navHome) navHome.addEventListener('click', e => { e.preventDefault(); goTo(0); });
 
+// All "Solicitar Demo" / "Agendar una demo" buttons → jump to section 07 (idx 6)
+document.querySelectorAll('.btn--primary, .pilot-cta').forEach(btn => {
+  if (btn.getAttribute('href') === '#') {
+    btn.addEventListener('click', e => { e.preventDefault(); goTo(6); });
+  }
+});
+
 // Scroll hint — hide after first navigation
 const scrollHint = document.getElementById('scroll-hint');
 function hideScrollHint() { if (scrollHint) scrollHint.style.opacity = '0'; }
