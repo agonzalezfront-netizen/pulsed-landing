@@ -114,6 +114,14 @@ const isMobile = window.innerWidth < 768;
 
 if (!isMobile) {
   window.addEventListener('wheel', e => {
+    // If current section has overflow and cursor isn't at the edge, let native scroll
+    const sec = sections[curIdx];
+    if (sec.scrollHeight > sec.clientHeight + 5) {
+      const atTop = sec.scrollTop <= 2;
+      const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 2;
+      if (e.deltaY > 0 && !atBottom) return;   // scrolling down, content below → native scroll
+      if (e.deltaY < 0 && !atTop) return;       // scrolling up, content above → native scroll
+    }
     e.preventDefault();
     if (busy) return;
     e.deltaY > 0 ? goTo(curIdx + 1) : goTo(curIdx - 1);

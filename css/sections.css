@@ -4,6 +4,8 @@
   display: none;
   align-items: flex-start;
   padding: clamp(80px, 8vh, 140px) clamp(64px, 6vw, 160px);
+  overflow-y: auto;               /* allow scroll within section when content exceeds viewport */
+  -webkit-overflow-scrolling: touch;
 }
 .section.active { display: flex; }
 
