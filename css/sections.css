@@ -6,8 +6,27 @@
   padding: clamp(80px, 8vh, 140px) clamp(64px, 6vw, 160px);
   overflow-y: auto;               /* allow scroll within section when content exceeds viewport */
   -webkit-overflow-scrolling: touch;
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(167,139,250,0.35) transparent;
 }
 .section.active { display: flex; }
+
+/* WebKit scrollbar — thin, subtle, matches dark glass theme */
+.section::-webkit-scrollbar {
+  width: 6px;
+}
+.section::-webkit-scrollbar-track {
+  background: transparent;
+}
+.section::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.section::-webkit-scrollbar-thumb:hover {
+  background: rgba(167,139,250,0.35);
+}
 
 /* Split sections: push down slightly from pure center for better visual weight */
 .section:has(.sec-content--split) {
