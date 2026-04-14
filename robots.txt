@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /app/demo
+Disallow: /app/login
+Disallow: /app/admin
+Disallow: /app/dashboard
+
+Sitemap: https://pulsed.cl/sitemap.xml
